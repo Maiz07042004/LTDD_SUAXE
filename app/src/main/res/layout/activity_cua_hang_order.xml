@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CuaHangDetail_Activity">
+
+
+    <ImageView
+        android:id="@+id/image_cuahang"
+        android:layout_width="match_parent"
+        android:layout_height="273dp"
+        app:srcCompat="@drawable/cuahang1" />
+    <TextView
+        android:textColor="@color/black"
+        android:id="@+id/tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image_cuahang"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:text="Nhập vị trí hiện tại của bạn"
+        />
+
+    <EditText
+        android:id="@+id/diachi"
+        android:layout_below="@+id/tv1"
+        android:layout_width="350dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="30dp"
+        android:paddingLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:textSize="14dp"
+        android:background="@drawable/custom_search"
+        android:hint="Vui lòng nhập rõ địa chỉ" />
+    <TextView
+        android:textColor="@color/black"
+        android:id="@+id/tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/diachi"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:text="Chọn loại dịch vụ "
+        />
+    <LinearLayout
+        android:layout_marginStart="30dp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv2"
+        android:orientation="vertical">
+        <CheckBox
+            android:id="@+id/checkbox_valop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Vá săm, lốp"/>
+
+        <CheckBox
+            android:id="@+id/checkBox_thaynhot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Thay nhớt" />
+        <CheckBox
+            android:id="@+id/checkBox_suadien"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Sửa chữa điện" />
+        <CheckBox
+            android:id="@+id/checkBox_chuaro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Vấn đề chưa rõ" />
+    </LinearLayout>
+</RelativeLayout>

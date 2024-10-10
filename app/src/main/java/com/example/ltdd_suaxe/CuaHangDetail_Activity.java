@@ -11,22 +11,24 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class MainActivity extends AppCompatActivity {
-    private  Button btn;
+public class CuaHangDetail_Activity extends AppCompatActivity {
+    Button btn;
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
-        btn=findViewById(R.id.button);
+        setContentView(R.layout.activity_cua_hang_detail);
 
+        btn=findViewById(R.id.datdichvu);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, User_Home_Activity.class);
+                Intent intent=new Intent(CuaHangDetail_Activity.this, CuaHangOrder_Activity.class);
                 startActivity(intent);
             }
         });
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
