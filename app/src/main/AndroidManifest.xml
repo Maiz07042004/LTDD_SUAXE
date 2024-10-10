@@ -23,6 +23,9 @@
             android:name=".nCuaHangDaLuu_Activity"
             android:exported="false" />
         <activity
+            android:name=".h_register_Activity"
+            android:exported="false" />
+        <activity
             android:name=".CuaHangOrder_Activity"
             android:exported="false" />
         <activity
