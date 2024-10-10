@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="273dp"
         app:srcCompat="@drawable/cuahang1" />
+
     <TextView
         android:id="@+id/ten_cuahang"
         android:layout_width="wrap_content"
@@ -96,18 +97,19 @@
         android:layout_width="350dp"
         android:layout_height="150dp"
         android:layout_below="@+id/mota2_cuahang"
+        android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="38dp"
+        android:layout_marginTop="43dp"
+        android:layout_marginEnd="35dp"
         android:background="#CEC9C9"
         android:padding="10dp"
         android:scrollbars="vertical"
-
         android:text="Cửa hàng sửa xe của chúng tôi cung cấp dịch vụ sửa chữa và bảo dưỡng xe chuyên nghiệp cho mọi loại phương tiện.
 Với đội ngũ kỹ thuật viên lành nghề và giàu kinh nghiệm, chúng tôi cam kết mang đến cho khách hàng các giải pháp sửa chữa chất lượng, nhanh chóng và đáng tin cậy.
 Từ việc thay dầu, kiểm tra phanh, bảo dưỡng động cơ đến sửa chữa các sự cố phức tạp hơn như hệ thống điện và điều hòa, chúng tôi đều xử lý một cách chu đáo và tỉ mỉ."
         android:textSize="12dp"
         android:textStyle="bold" />
+
     <Button
         android:id="@+id/datdichvu"
         android:layout_width="match_parent"
