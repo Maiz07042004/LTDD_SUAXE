@@ -13,6 +13,15 @@
         android:theme="@style/Theme.LTDD_SUAXE"
         tools:targetApi="31">
         <activity
+            android:name=".fragment_user.nDoiMatKhau_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".nChiTietDatHang_AcTiViTy"
+            android:exported="false" />
+        <activity
+            android:name=".nCuaHangDaLuu_Activity"
+            android:exported="false" />
+        <activity
             android:name=".CuaHangOrder_Activity"
             android:exported="false" />
         <activity

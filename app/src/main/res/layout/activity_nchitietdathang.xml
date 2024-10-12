@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="ExtraText">
+
+    <!-- Header title -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/header_title"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#DDC64C">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Chi tiết đặt hàng"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Nội dung chứa layout1 và layout2 -->
+    <RelativeLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/header_title"
+        android:layout_marginTop="30dp">
+
+        <!-- Layout 1: màu xanh -->
+        <RelativeLayout
+            android:id="@+id/layout1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/bogoc1"> <!-- Nền xanh với bo góc -->
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Đơn hàng đã thành công"
+                android:textColor="#EBE5E5"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <!-- Layout 2: màu trắng xám đè lên layout 1 -->
+        <RelativeLayout
+            android:id="@+id/layout2"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_below="@id/layout1"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="-20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/bogoc2">
+            <!-- Có thể thêm các phần tử khác trong layout2 nếu cần -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"> <!-- Thay đổi thành vertical để có thể chứa nhiều TextView -->
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Thông tin đơn hàng"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="5dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mã đơn hàng : SXCP01"
+                    android:textSize="10sp"
+                    android:textStyle="normal"
+                    android:textColor="#94121212"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="2dp"/>
+
+                <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Trạng thái đơn hàng : Thành công"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#F71B9287"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="22/11/2024"
+                    android:textSize="10sp"
+                    android:textStyle="normal"
+                    android:textColor="#94121212"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="2dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Thông tin người đặt"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="5dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Trần Hiếu    (+84)705319679"
+                    android:textSize="10sp"
+                    android:textStyle="normal"
+                    android:textColor="#94121212"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="2dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="392 Hùng Vương, phường Vĩnh Trung, quận Thanh Khê, Đà Nẵng"
+                    android:textSize="10sp"
+                    android:textStyle="normal"
+                    android:textColor="#94121212"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="2dp"/>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layout2"
+            android:layout_marginStart="17dp"
+            android:layout_marginTop="34dp"
+            android:layout_marginEnd="23dp"
+            android:background="@drawable/n_vien1">
+
+            <LinearLayout
+                android:id="@+id/GaraView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="176dp"
+                        android:layout_height="115dp"
+                        android:layout_margin="10dp"
+                        android:src="@drawable/cuahang1" />
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Thanh Mai Garage"
+                        android:textColor="#0F0D0D"
+                        android:textSize="23dp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </FrameLayout>
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="110dp"
+            android:layout_marginEnd="102dp"
+            android:layout_marginBottom="100dp"
+            android:layout_marginTop="80dp"
+            android:backgroundTint="#CCA8960A"
+            android:backgroundTintMode="src_in"
+            android:text="Đặt lại" />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
