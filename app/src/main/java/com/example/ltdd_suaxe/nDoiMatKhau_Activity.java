@@ -1,4 +1,4 @@
-package com.example.ltdd_suaxe.fragment_user;
+package com.example.ltdd_suaxe;
 
 import android.os.Bundle;
 
@@ -7,8 +7,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-
-import com.example.ltdd_suaxe.R;
 
 public class nDoiMatKhau_Activity extends AppCompatActivity {
 
