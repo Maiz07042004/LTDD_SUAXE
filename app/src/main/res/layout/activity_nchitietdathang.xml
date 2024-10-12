@@ -137,6 +137,24 @@
                     android:textColor="#94121212"
                     android:paddingLeft="10dp"
                     android:paddingTop="2dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dịch vụ đặt"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="#121212"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="5dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vá lốp"
+                    android:textSize="10sp"
+                    android:textStyle="normal"
+                    android:textColor="#121212"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="2dp"/>
 
             </LinearLayout>
         </RelativeLayout>
@@ -192,12 +210,14 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="110dp"
-            android:layout_marginEnd="102dp"
-            android:layout_marginBottom="100dp"
             android:layout_marginTop="80dp"
-            android:backgroundTint="#CCA8960A"
+            android:layout_marginEnd="102dp"
+            android:layout_marginBottom="99dp"
+            android:background="@drawable/nedit_button"
             android:backgroundTintMode="src_in"
-            android:text="Đặt lại" />
+            android:text="Đặt lại"
+            android:textStyle="bold"
+            android:textSize="17dp"/>
 
 
     </RelativeLayout>

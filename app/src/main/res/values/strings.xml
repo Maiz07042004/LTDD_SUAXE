@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">LTDD_SUAXE</string>
+
+        <string-array name="gender_array">
+            <item>Nam</item>
+            <item>Nữ</item>
+        </string-array>
 </resources>

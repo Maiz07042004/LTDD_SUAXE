@@ -11,6 +11,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.ltdd_suaxe.fragment_user.PersonFragmentUser;
+
 public class MainActivity extends AppCompatActivity {
     private  Button btn;
     @Override
@@ -23,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, nChiTietDatHang_AcTiViTy.class);
+                Intent intent = new Intent(MainActivity.this, nDoiMatKhau_Activity.class);
                 startActivity(intent);
             }
         });
