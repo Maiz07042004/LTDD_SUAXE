@@ -12,8 +12,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LTDD_SUAXE"
         tools:targetApi="31">
+
         <activity
-            android:name=".h_register_Activity"
+            android:name=".h_begin_user_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".h_begin_cua_hang_activity"
+            android:exported="false" />
+        <activity
+            android:name=".h_register_cua_hang_activity"
+            android:exported="false" />
+        <activity
+            android:name=".h_activity_allset"
+            android:exported="false" />
+        <activity
+            android:name=".h_register_user_activity"
+            android:exported="false" />
+        <activity
+            android:name=".h_login_activity"
+            android:exported="false" />
+        <activity
+            android:name=".h_dangkithongtin_cuahang_activity"
             android:exported="false" />
         <activity
             android:name=".CuaHangOrder_Activity"
