@@ -22,8 +22,6 @@ public class h_login_activity extends AppCompatActivity {
         input_mk = findViewById(R.id.TextPassword);
         Button btn_login = findViewById(R.id.button_login);
         btn_login.setOnClickListener(new View.OnClickListener() {
-
-
             public void onClick(View view) {
                 // Lấy giá trị từ EditText
                 String taikhoan = input_taikhoan.getText().toString().trim();
