@@ -95,6 +95,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="Email"
+        android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintTop_toBottomOf="@id/editTextText"
         app:layout_constraintStart_toStartOf="parent"
         android:paddingLeft="16dp"/>
@@ -119,6 +121,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="Số điện thoại"
+        android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintTop_toBottomOf="@id/editTextText2"
         app:layout_constraintStart_toStartOf="parent"
         android:paddingLeft="16dp"/>
@@ -143,6 +147,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Giới tính"
+        android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintTop_toBottomOf="@id/editTextText3"
         app:layout_constraintStart_toStartOf="parent"
         android:paddingLeft="16dp"/>
