@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Gradient Background -->
+    <item>
+        <shape>
+            <gradient
+                android:startColor="#FFFFFF"
+                android:centerColor="#FFF1E1"
+                android:endColor="#FFE8CD"
+                android:angle="90"/>
+        </shape>
+    </item>
+
+    <!-- Hình Oval Màu Trắng -->
+    <item>
+        <shape android:shape="oval"
+          >
+
+            <solid android:color="#FFFFFF"/>
+            <size
+                android:width="100dp"
+            android:height="50dp"/>
+
+        </shape>
+    </item>
+
+</layer-list>
