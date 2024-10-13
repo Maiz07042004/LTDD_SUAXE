@@ -29,26 +29,21 @@ public class CuaHang_Activity extends AppCompatActivity {
         adapter= new CuaHangAdapter(this,R.layout.dong_cuahang,arrayCuaHang);
         lvCuaHang.setAdapter(adapter);
 
-        lvCuaHang.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent=new Intent(CuaHang_Activity.this, CuaHangDetail_Activity.class);
-                startActivity(intent);
-            }
-        });
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
     }
+
     private void AnhXa(){
         lvCuaHang=(ListView) findViewById(R.id.list_cuaHang);
         arrayCuaHang=new ArrayList<>();
-        arrayCuaHang.add(new CuaHang("Quận Hải Châu",1000,R.drawable.cuahang1));
-        arrayCuaHang.add(new CuaHang("Quận Liên Chiểu",2000,R.drawable.cuahang2));
-        arrayCuaHang.add(new CuaHang("Quận Cẩm Lệ",50000,R.drawable.cuahang3));
-        arrayCuaHang.add(new CuaHang("Quận Thanh Khê",40000,R.drawable.cuahang4));
-        arrayCuaHang.add(new CuaHang("Quận Thanh Khê",30034,R.drawable.cuahang3));
+        arrayCuaHang.add(new CuaHang("Quận Hải Châu",1000,"0364933757",R.drawable.cuahang1));
+        arrayCuaHang.add(new CuaHang("Quận Liên Chiểu",2000,"0364933757",R.drawable.cuahang2));
+        arrayCuaHang.add(new CuaHang("Quận Cẩm Lệ",50000,"0364933757",R.drawable.cuahang3));
+        arrayCuaHang.add(new CuaHang("Quận Thanh Khê",40000,"0364933757",R.drawable.cuahang4));
+        arrayCuaHang.add(new CuaHang("Quận Thanh Khê",30034,"0364933757",R.drawable.cuahang3));
     }
 }

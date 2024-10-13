@@ -102,6 +102,7 @@
                 android:paddingLeft="10dp"
                 android:paddingTop="5dp"/>
                 <TextView
+                    android:id="@+id/ngaydat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="22/11/2024"
@@ -119,16 +120,34 @@
                     android:textColor="@color/black"
                     android:paddingLeft="10dp"
                     android:paddingTop="5dp"/>
-                <TextView
+                <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Trần Hiếu    (+84)705319679"
-                    android:textSize="10sp"
-                    android:textStyle="normal"
-                    android:textColor="#94121212"
-                    android:paddingLeft="10dp"
-                    android:paddingTop="2dp"/>
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/ten_khachhang"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Trần Hiếu"
+                        android:textSize="10sp"
+                        android:textStyle="normal"
+                        android:textColor="#94121212"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="2dp"/>
+                    <TextView
+                        android:id="@+id/sdt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="036493757"
+                        android:layout_toRightOf="@+id/ten_khachhang"
+                        android:textSize="10sp"
+                        android:textStyle="normal"
+                        android:textColor="#94121212"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="2dp"/>
+                </RelativeLayout>
+
                 <TextView
+                    android:id="@+id/diachi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="392 Hùng Vương, phường Vĩnh Trung, quận Thanh Khê, Đà Nẵng"
@@ -147,6 +166,7 @@
                     android:paddingLeft="10dp"
                     android:paddingTop="5dp"/>
                 <TextView
+                    android:id="@+id/dichvu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Vá lốp"
@@ -182,13 +202,14 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/imgCuaHang"
                         android:layout_width="176dp"
                         android:layout_height="115dp"
                         android:layout_margin="10dp"
                         android:src="@drawable/cuahang1" />
 
                     <TextView
-                        android:id="@+id/textView6"
+                        android:id="@+id/ten_cuahang"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"

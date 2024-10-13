@@ -12,14 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LTDD_SUAXE"
         tools:targetApi="31">
-        <activity
-            android:name=".n_updateThongTin_Activity"
-            android:exported="false" />
+
         <activity
             android:name=".nDoiMatKhau_Activity"
-            android:exported="false" />
-        <activity
-            android:name=".fragment_user.nDoiMatKhau_Activity"
             android:exported="false" />
         <activity
             android:name=".nChiTietDatHang_AcTiViTy"
@@ -37,8 +32,15 @@
             android:name=".CuaHang_Activity"
             android:exported="true" />
         <activity
+            android:name=".User_CuaHang_Activity"
+            android:exported="true" />
+        <activity
             android:name=".User_Home_Activity"
             android:exported="false" />
+        <activity
+            android:name=".CuaHang_Home_Activity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">

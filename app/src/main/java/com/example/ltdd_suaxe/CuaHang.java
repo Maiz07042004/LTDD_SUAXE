@@ -3,12 +3,22 @@ package com.example.ltdd_suaxe;
 public class CuaHang {
     private String Ten;
     private int Like;
+    private String Sdt;
     private int Hinh;
 
-    public CuaHang(String ten, int like, int hinh) {
+    public CuaHang(String ten, int like, String sdt, int hinh) {
         Ten = ten;
         Like = like;
         Hinh = hinh;
+        Sdt = sdt;
+    }
+
+    public String getSdt() {
+        return Sdt;
+    }
+
+    public void setSdt(String sdt) {
+        Sdt = sdt;
     }
 
     public String getTen() {

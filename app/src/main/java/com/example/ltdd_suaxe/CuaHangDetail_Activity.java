@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +14,10 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class CuaHangDetail_Activity extends AppCompatActivity {
+    TextView tenCuaHang;
+    TextView sdt;
+    TextView like;
+    ImageView imgCuaHang;
     Button btn;
     @Override
 
@@ -20,7 +26,24 @@ public class CuaHangDetail_Activity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_cua_hang_detail);
 
+
         btn=findViewById(R.id.datdichvu);
+        AnhXa();
+
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null) {
+            String tencuahang = bundle.getString("ten_cua_hang");
+            int likeBundle = bundle.getInt("like");
+            int hinhCuaHang = bundle.getInt("img");
+            String sdtBundle=bundle.getString("sdt");
+
+            // Hiển thị dữ liệu lên view
+            tenCuaHang.setText(tencuahang);
+            like.setText(String.valueOf(likeBundle));
+            imgCuaHang.setImageResource(hinhCuaHang);
+            sdt.setText(sdtBundle);
+        }
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -34,5 +57,11 @@ public class CuaHangDetail_Activity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+    public void AnhXa(){
+        tenCuaHang=findViewById(R.id.ten_cuahang);
+        sdt=findViewById(R.id.phone);
+        like=findViewById(R.id.like);
+        imgCuaHang=findViewById(R.id.image_cuahang);
     }
 }
