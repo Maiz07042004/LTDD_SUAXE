@@ -1,6 +1,8 @@
 package com.example.ltdd_suaxe;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -40,13 +42,13 @@ public class nDoiMatKhau_Activity extends AppCompatActivity {
                         confirmPassword.getText().toString().isEmpty()) {
 
                     // Hiển thị thông báo lỗi nếu bất kỳ trường nào trống
-                    showAlert("Lỗi", "Vui lòng nhập đầy đủ thông tin!");
+                    showAlert("Lỗi", "Vui lòng nhập đầy đủ thông tin!",false);
                 } else if (!newPassword.getText().toString().equals(confirmPassword.getText().toString())) {
                     // Hiển thị thông báo lỗi nếu mật khẩu mới và xác nhận không khớp
-                    showAlert("Lỗi", "Mật khẩu mới và xác nhận mật khẩu không khớp!");
+                    showAlert("Lỗi", "Mật khẩu mới và xác nhận mật khẩu không khớp!",false);
                 } else {
                     // Hiển thị thông báo thành công nếu mọi thứ hợp lệ
-                    showAlert("Thông báo", "Bạn đã đổi mật khẩu thành công!");
+                    showAlert("Thông báo", "Bạn đã đổi mật khẩu thành công!",true);
                 }
             }
         });
@@ -59,14 +61,23 @@ public class nDoiMatKhau_Activity extends AppCompatActivity {
         });
     }
 
-    // Phương thức để hiển thị AlertDialog
-    private void showAlert(String title, String message) {
+    private void showAlert(String title, String message, boolean success) {
         AlertDialog.Builder builder = new AlertDialog.Builder(nDoiMatKhau_Activity.this);
         builder.setTitle(title);
         builder.setMessage(message);
 
         // Nút đóng hộp thoại
-        builder.setPositiveButton("Đóng", (dialog, which) -> dialog.dismiss());
+        builder.setPositiveButton("Đóng", (dialog, which) -> {
+            dialog.dismiss();
+            if (success) {
+                // Tạo một Handler để chuyển Activity sau 1 giây
+                new Handler().postDelayed(() -> {
+                    Intent intent = new Intent(nDoiMatKhau_Activity.this, User_Home_Activity.class); // Thay YourNextActivity bằng Activity bạn muốn chuyển tới
+                    startActivity(intent);
+                    finish(); // Kết thúc Activity hiện tại nếu không cần quay lại
+                }, 1000); // Độ trễ 1 giây
+            }
+        });
 
         // Tạo và hiển thị hộp thoại
         AlertDialog dialog = builder.create();

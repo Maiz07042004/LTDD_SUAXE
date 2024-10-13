@@ -24,6 +24,17 @@
         android:textSize="30dp"
         android:text="Thanh Mai Garage"
         />
+
+    <ImageView
+        android:id="@+id/luu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image_cuahang"
+        android:layout_marginLeft="71dp"
+        android:layout_marginTop="22dp"
+        android:layout_toRightOf="@id/ten_cuahang"
+        android:src="@drawable/luu" />
+
     <TextView
         android:id="@+id/mota_cuahang"
         android:layout_width="wrap_content"
@@ -113,7 +124,7 @@ Từ việc thay dầu, kiểm tra phanh, bảo dưỡng động cơ đến sử
         android:layout_width="match_parent"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
-        android:background="@color/yellow"
+        android:background="@drawable/nedit_button"
         android:layout_height="45dp"
         android:layout_below="@+id/text_mota"
         android:layout_marginTop="30dp"
