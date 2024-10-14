@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import android.widget.Toast;
@@ -19,6 +20,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.ltdd_suaxe.R;
 import com.example.ltdd_suaxe.User_CuaHang_Activity;
@@ -27,24 +31,24 @@ import com.example.ltdd_suaxe.nDoiMatKhau_Activity;
 
 public class SettingsFragmentUser extends Fragment {
     private View mView;
-    private RelativeLayout rlDeleteAccount, rlLogout;
+    private RelativeLayout rlDeleteAccount, rlLogout , rlInfo,cuahangdaluu,doiMk;
+    private ImageView edit;
 
     @SuppressLint("WrongViewCast")
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-
-
-
-
-
         mView = inflater.inflate(R.layout.fragment_settings_user, container, false);
 
         // Ánh xạ các RelativeLayout
         rlDeleteAccount = mView.findViewById(R.id.txt_XoaTk);
         rlLogout = mView.findViewById(R.id.DangXuat);
-        RelativeLayout cuahangdaluu = mView.findViewById(R.id.cuahangdaluu);
+        rlInfo=mView.findViewById(R.id.thongtincanhan);
+        edit=mView.findViewById(R.id.edit);
+        cuahangdaluu = mView.findViewById(R.id.cuahangdaluu);
+        doiMk = mView.findViewById(R.id.txt_Doimk);
+
         cuahangdaluu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,12 +56,30 @@ public class SettingsFragmentUser extends Fragment {
                 startActivity(intent);
             }
         });
-        RelativeLayout doiMk = mView.findViewById(R.id.txt_Doimk);
+
         doiMk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), nDoiMatKhau_Activity.class);
                 startActivity(intent);
+            }
+        });
+
+        rlInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Chuyển từ Fragment 4 sang Fragment 3
+                ViewPager2 viewPager = getActivity().findViewById(R.id.view_pager_home_user);
+                viewPager.setCurrentItem(2, true);
+            }
+        });
+
+        edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Chuyển từ Fragment 4 sang Fragment 3
+                ViewPager2 viewPager = getActivity().findViewById(R.id.view_pager_home_user);
+                viewPager.setCurrentItem(2, true);
             }
         });
         // Thiết lập sự kiện click cho "Xoá tài khoản"
@@ -75,6 +97,7 @@ public class SettingsFragmentUser extends Fragment {
                 showConfirmationDialog("Đăng xuất", "Bạn có chắc chắn muốn đăng xuất không?");
             }
         });
+
 
         return mView;
     }
