@@ -27,7 +27,7 @@ import com.example.ltdd_suaxe.nDoiMatKhau_Activity;
 
 public class SettingsFragmentUser extends Fragment {
     private View mView;
-    private RelativeLayout rlDeleteAccount, rlLogout;
+    private RelativeLayout rlDeleteAccount, rlLogout,rl_info;
 
     @SuppressLint("WrongViewCast")
     @Nullable
@@ -42,6 +42,7 @@ public class SettingsFragmentUser extends Fragment {
         mView = inflater.inflate(R.layout.fragment_settings_user, container, false);
 
         // Ánh xạ các RelativeLayout
+        rl_info=mView.findViewById(R.id.rlt_info);
         rlDeleteAccount = mView.findViewById(R.id.txt_XoaTk);
         rlLogout = mView.findViewById(R.id.DangXuat);
         RelativeLayout cuahangdaluu = mView.findViewById(R.id.cuahangdaluu);
@@ -60,6 +61,13 @@ public class SettingsFragmentUser extends Fragment {
                 startActivity(intent);
             }
         });
+
+        rl_info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent int_info = new Intent(getContext(),PersonFragmentUser.class);
+            }
+        });
         // Thiết lập sự kiện click cho "Xoá tài khoản"
         rlDeleteAccount.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,6 +75,8 @@ public class SettingsFragmentUser extends Fragment {
                 showConfirmationDialog("Xoá tài khoản", "Bạn có chắc chắn muốn xoá tài khoản này không?");
             }
         });
+
+
 
         // Thiết lập sự kiện click cho "Đăng xuất"
         rlLogout.setOnClickListener(new View.OnClickListener() {
