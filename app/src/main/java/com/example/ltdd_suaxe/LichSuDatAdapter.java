@@ -1,6 +1,7 @@
 package com.example.ltdd_suaxe;
 
 import android.content.Context;
+import android.credentials.CreateCredentialException;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,8 @@ public class LichSuDatAdapter extends BaseAdapter {
     private Context context;
     private int layout;
     private List<LichSuDat> lichSuDatList;
+
+
 
     public LichSuDatAdapter(Context context, int layout, List<LichSuDat> lichSuDatList) {
         this.context = context;
@@ -61,4 +64,8 @@ public class LichSuDatAdapter extends BaseAdapter {
 
         return view;
     }
+
+
+
+
 }

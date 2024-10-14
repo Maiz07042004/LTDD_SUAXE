@@ -23,6 +23,7 @@ import androidx.fragment.app.Fragment;
 import com.example.ltdd_suaxe.R;
 import com.example.ltdd_suaxe.User_CuaHang_Activity;
 import com.example.ltdd_suaxe.nCuaHangDaLuu_Activity;
+import com.example.ltdd_suaxe.nDoiMatKhau_Activity;
 
 public class SettingsFragmentUser extends Fragment {
     private View mView;
@@ -33,9 +34,17 @@ public class SettingsFragmentUser extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        mView = inflater.inflate(R.layout.fragment_settings_user,container,false);
-        RelativeLayout cuahangdaluu = mView.findViewById(R.id.cuahangdaluu);
 
+
+
+
+
+        mView = inflater.inflate(R.layout.fragment_settings_user, container, false);
+
+        // Ánh xạ các RelativeLayout
+        rlDeleteAccount = mView.findViewById(R.id.txt_XoaTk);
+        rlLogout = mView.findViewById(R.id.DangXuat);
+        RelativeLayout cuahangdaluu = mView.findViewById(R.id.cuahangdaluu);
         cuahangdaluu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,13 +52,14 @@ public class SettingsFragmentUser extends Fragment {
                 startActivity(intent);
             }
         });
-
-        mView = inflater.inflate(R.layout.fragment_settings_user, container, false);
-
-        // Ánh xạ các RelativeLayout
-        rlDeleteAccount = mView.findViewById(R.id.txt_XoaTk);
-        rlLogout = mView.findViewById(R.id.DangXuat);
-
+        RelativeLayout doiMk = mView.findViewById(R.id.txt_Doimk);
+        doiMk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), nDoiMatKhau_Activity.class);
+                startActivity(intent);
+            }
+        });
         // Thiết lập sự kiện click cho "Xoá tài khoản"
         rlDeleteAccount.setOnClickListener(new View.OnClickListener() {
             @Override
