@@ -60,6 +60,7 @@ public class SettingsFragmentUser extends Fragment {
                 Intent intent = new Intent(getContext(), nDoiMatKhau_Activity.class);
                 startActivity(intent);
             }
+
         });
 
         rl_info.setOnClickListener(new View.OnClickListener() {
@@ -68,6 +69,8 @@ public class SettingsFragmentUser extends Fragment {
                 Intent int_info = new Intent(getContext(),PersonFragmentUser.class);
             }
         });
+
+
         // Thiết lập sự kiện click cho "Xoá tài khoản"
         rlDeleteAccount.setOnClickListener(new View.OnClickListener() {
             @Override

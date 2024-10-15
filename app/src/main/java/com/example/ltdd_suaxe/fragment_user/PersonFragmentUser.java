@@ -22,8 +22,13 @@ public class PersonFragmentUser extends Fragment {
     private Button btnUpdate;
 
     @Nullable
+
+
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+
         mView = inflater.inflate(R.layout.fragment_person_user, container, false);
 
         // Khởi tạo Spinner
