@@ -1,6 +1,7 @@
 package com.example.ltdd_suaxe;
 
 import android.content.Context;
+import android.content.Intent;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,6 +43,8 @@ public class LichSuDatAdapter extends BaseAdapter {
         LayoutInflater inflater= (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         view=inflater.inflate(layout,null);
 
+
+
 //        Ánh xạ view
         TextView txtTen=(TextView) view.findViewById(R.id.ten_cuahang);
         TextView txtDichVu=(TextView) view.findViewById(R.id.dichvu);
@@ -59,6 +62,21 @@ public class LichSuDatAdapter extends BaseAdapter {
         txtTrangThai.setText(lichSuDat.getTrangThai());
         imgHinh.setImageResource(lichSuDat.getHinh());
 
+        view.setOnClickListener(v -> {
+            // Chuyển đến màn hình chi tiết đặt hàng
+            Intent intent = new Intent(context, nChiTietDatHang_AcTiViTy.class);
+
+            // Có thể truyền thêm dữ liệu về đơn hàng nếu cần
+            intent.putExtra("ten_cuahang", lichSuDat.getTenCuaHang());
+            intent.putExtra("dichvu", dichVuString);
+            intent.putExtra("ngaydat", lichSuDat.getNgayDat().toString());
+            intent.putExtra("trangthai", lichSuDat.getTrangThai());
+
+            // Khởi động activity
+            context.startActivity(intent);
+        });
+
         return view;
     }
+
 }

@@ -14,7 +14,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import java.util.ArrayList;
 
-public class CuaHang_Activity extends AppCompatActivity {
+public class    CuaHang_Activity extends AppCompatActivity {
     ListView lvCuaHang;
     ArrayList<CuaHang> arrayCuaHang;
     CuaHangAdapter adapter;
