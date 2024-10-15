@@ -31,7 +31,7 @@
         android:layout_marginTop="11dp"
         android:layout_marginEnd="153dp"
         android:fontFamily="sans-serif-black"
-        android:text="Đăng kí"
+        android:text="Đăng ký"
         android:textColor="@color/black"
         android:textSize="30dp" />
 
@@ -44,7 +44,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="104dp"
         android:gravity="center"
-        android:text="Vui lòng điền thông tin chi tiết\n và tài khoản  của bạn"
+        android:text="Vui lòng điền thông tin chi tiết\n và tài khoản của bạn"
         android:textColor="@color/black"
         android:textSize="15dp"
 
@@ -56,11 +56,13 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/editTextText"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="2dp"
         android:fontFamily="sans-serif-black"
         android:text="Mật khẩu"
         android:textColor="@color/black"
-        android:textSize="25dp" />
+        android:textSize="22dp" />
+
 
     <TextView
         android:id="@+id/textViewxnmatkhau"
@@ -68,12 +70,12 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/editTextTextPassword"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="1dp"
         android:fontFamily="sans-serif-black"
         android:text="Xác nhận mật khẩu"
         android:textColor="@color/black"
-        android:textSize="25dp" />
-
+        android:textSize="22dp" />
 
     <TextView
         android:id="@+id/textViewemail"
@@ -81,30 +83,31 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/editTextxnmatkhau"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="-1dp"
         android:fontFamily="sans-serif-black"
         android:text="Email"
         android:textColor="@color/black"
-        android:textSize="25dp" />
+        android:textSize="22dp" />
 
     <EditText
         android:id="@+id/editTextemail"
-        android:layout_width="245dp"
-        android:layout_height="42dp"
+        android:layout_width="322dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/textViewemail"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="116dp"
+        android:layout_marginEnd="39dp"
         android:ems="10"
         android:inputType="text" />
 
     <EditText
         android:id="@+id/editTextText"
-        android:layout_width="245dp"
-        android:layout_height="42dp"
+        android:layout_width="322dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/textViewtaikhoan"
         android:layout_alignParentEnd="true"
 
-        android:layout_marginEnd="115dp"
+        android:layout_marginEnd="38dp"
         android:ems="10"
         android:inputType="text" />
 
@@ -114,33 +117,33 @@
         android:layout_height="36dp"
         android:layout_below="@+id/textView_noidung"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="79dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="49dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="sans-serif-black"
         android:text="Tài khoản"
         android:textColor="@color/black"
-        android:textSize="25dp" />
+        android:textSize="22dp" />
+
 
     <EditText
         android:id="@+id/editTextxnmatkhau"
-        android:layout_width="245dp"
-        android:layout_height="42dp"
+        android:layout_width="323dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/textViewxnmatkhau"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="116dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="38dp"
         android:ems="10"
         android:inputType="textPassword" />
 
-
-
     <EditText
         android:id="@+id/editTextTextPassword"
-        android:layout_width="245dp"
-        android:layout_height="42dp"
+        android:layout_width="322dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/textViewmatkhau"
         android:layout_alignParentEnd="true"
 
-        android:layout_marginEnd="115dp"
+        android:layout_marginEnd="38dp"
         android:ems="10"
         android:inputType="textPassword" />
 
@@ -152,11 +155,11 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="151dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="151dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="150dp"
         android:background="@drawable/button_register_login"
         android:fontFamily="sans-serif-black"
-        android:text="Đăng kí" />
+        android:text="Đăng ký" />
 
     <TextView
         android:id="@+id/textViewdangkitaikhoancuahang_user"
@@ -165,9 +168,9 @@
         android:layout_below="@+id/button_dangki"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="115dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="115dp"
+        android:layout_marginStart="117dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="113dp"
 
         android:text="Đăng ký tài khoản cửa hàng?" />
 
