@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import android.widget.Toast;
@@ -19,15 +20,20 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.ltdd_suaxe.R;
 import com.example.ltdd_suaxe.User_CuaHang_Activity;
+import com.example.ltdd_suaxe.User_Home_Activity;
+import com.example.ltdd_suaxe.h_login_activity;
 import com.example.ltdd_suaxe.nCuaHangDaLuu_Activity;
 import com.example.ltdd_suaxe.nDoiMatKhau_Activity;
 
 public class SettingsFragmentUser extends Fragment {
     private View mView;
-    private RelativeLayout rlDeleteAccount, rlLogout,rl_info;
+    private RelativeLayout rlDeleteAccount, rlLogout;
 
     @SuppressLint("WrongViewCast")
     @Nullable
@@ -42,7 +48,6 @@ public class SettingsFragmentUser extends Fragment {
         mView = inflater.inflate(R.layout.fragment_settings_user, container, false);
 
         // Ánh xạ các RelativeLayout
-        rl_info=mView.findViewById(R.id.rlt_info);
         rlDeleteAccount = mView.findViewById(R.id.txt_XoaTk);
         rlLogout = mView.findViewById(R.id.DangXuat);
         RelativeLayout cuahangdaluu = mView.findViewById(R.id.cuahangdaluu);
@@ -60,17 +65,25 @@ public class SettingsFragmentUser extends Fragment {
                 Intent intent = new Intent(getContext(), nDoiMatKhau_Activity.class);
                 startActivity(intent);
             }
-
         });
 
-        rl_info.setOnClickListener(new View.OnClickListener() {
+        rlInfo.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent int_info = new Intent(getContext(),PersonFragmentUser.class);
+            public void onClick(View v) {
+                // Chuyển từ Fragment 4 sang Fragment 3
+                ViewPager2 viewPager = getActivity().findViewById(R.id.view_pager_home_user);
+                viewPager.setCurrentItem(2, true);
             }
         });
 
-
+        edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Chuyển từ Fragment 4 sang Fragment 3
+                ViewPager2 viewPager = getActivity().findViewById(R.id.view_pager_home_user);
+                viewPager.setCurrentItem(2, true);
+            }
+        });
         // Thiết lập sự kiện click cho "Xoá tài khoản"
         rlDeleteAccount.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,8 +92,6 @@ public class SettingsFragmentUser extends Fragment {
             }
         });
 
-
-
         // Thiết lập sự kiện click cho "Đăng xuất"
         rlLogout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,6 +99,7 @@ public class SettingsFragmentUser extends Fragment {
                 showConfirmationDialog("Đăng xuất", "Bạn có chắc chắn muốn đăng xuất không?");
             }
         });
+
 
         return mView;
     }
@@ -113,10 +125,10 @@ public class SettingsFragmentUser extends Fragment {
                 // Xử lý hành động khi người dùng nhấn "Submit"
                 if (title.equals("Xoá tài khoản")) {
                     Toast.makeText(getContext(), "Tài khoản đã bị xoá", Toast.LENGTH_SHORT).show();
-                    // Thực hiện logic xoá tài khoản tại đây
+                    goToLoginActivity();
                 } else if (title.equals("Đăng xuất")) {
                     Toast.makeText(getContext(), "Đăng xuất thành công", Toast.LENGTH_SHORT).show();
-                    // Thực hiện logic đăng xuất tại đây
+                    goToLoginActivity();
                 }
             }
         });
@@ -125,4 +137,14 @@ public class SettingsFragmentUser extends Fragment {
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
+    private void goToLoginActivity() {
+        Intent intent = new Intent(getActivity(), h_login_activity.class); // Chuyển sang LoginActivity
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK); // Xóa stack hiện tại
+        startActivity(intent); // Bắt đầu LoginActivity
+
+        if (getActivity() != null) {
+            getActivity().finish(); // Đóng Activity hiện tại nếu không phải null
+        }
+    }
+
 }

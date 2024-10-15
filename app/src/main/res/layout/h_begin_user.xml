@@ -27,8 +27,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageViewbegin"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="18dp"
-        android:layout_marginEnd="124dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="110dp"
         android:fontFamily="sans-serif-black"
         android:text="Xin chào !"
         android:textColor="@color/black"
@@ -40,8 +40,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textViewxinchao"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="29dp"
-        android:layout_marginEnd="138dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="120dp"
         android:gravity="center"
         android:text="Tạo một tài khoản và \ntruy cập hàng ngàn nội dung thú vị"
         android:textColor="@color/black"
@@ -54,10 +54,10 @@
         android:layout_below="@+id/textView_gioithieu"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="34dp"
-        android:layout_marginEnd="153dp"
+        android:layout_marginEnd="137dp"
         android:background="@drawable/button_register_login"
-        android:text="Bắt đầu"
-        android:fontFamily="sans-serif-black"/>
+        android:fontFamily="sans-serif-black"
+        android:text="Bắt đầu" />
 
     <TextView
         android:id="@+id/textView_dacotaikhoan_user"
@@ -66,7 +66,7 @@
         android:layout_below="@+id/button_batdau"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="43dp"
-        android:layout_marginEnd="113dp"
+        android:layout_marginEnd="96dp"
         android:text="Bạn đã có tài khoản ? Đăng nhập" />
 
 </RelativeLayout>
