@@ -10,6 +10,8 @@ public class LichSuDat {
     private String TrangThai;
     private int hinh;
 
+
+
     public LichSuDat(String tenCuaHang, String[] dichVu, Date ngayDat, String trangThai, int hinh) {
         TenCuaHang = tenCuaHang;
         DichVu = dichVu;

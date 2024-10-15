@@ -31,6 +31,9 @@ public class ListFragmentCuaHang extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mView = inflater.inflate(R.layout.fragment_list_cuahang,container,false);
+
+
+
         // Ánh xạ view
         tabLayout = mView.findViewById(R.id.tab_layout);
         viewPager = mView.findViewById(R.id.viewPager);

@@ -39,7 +39,7 @@
             android:id="@+id/imageViewAvatar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/image_user"
+            app:srcCompat="@drawable/image_ic_cuahang"
             android:layout_marginLeft="30dp"
             android:layout_centerVertical="true"/>
         <LinearLayout
@@ -55,12 +55,12 @@
                 android:layout_height="30dp"
                 android:textStyle="bold"
                 android:textSize="15sp"
-                android:text="Đặng Thanh Mai"/>
+                android:text="Thanh Mai Garage"/>
             <TextView
                 android:layout_width="215dp"
                 android:layout_height="30dp"
                 android:textSize="15sp"
-                android:text="dangmai19112016@gmail.com"/>
+                android:text="dangmaigarage@gmail.com"/>
         </LinearLayout>
 
         <ImageView
@@ -87,6 +87,7 @@
         android:orientation="vertical">
 
         <RelativeLayout
+            android:id="@+id/thongtincanhan_cuahang"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginBottom="15dp"
@@ -158,6 +159,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/xoataikhoan_cuahang"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginBottom="15dp"
@@ -193,6 +195,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/doimatkhau_cuahang"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginBottom="15dp"
@@ -227,6 +230,7 @@
                 android:layout_centerVertical="true"/>
         </RelativeLayout>
         <RelativeLayout
+            android:id="@+id/dangxuat_cuahang"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginBottom="15dp"
@@ -318,6 +322,7 @@
                 android:layout_centerVertical="true"/>
         </RelativeLayout>
         <RelativeLayout
+            android:id="@+id/DangXuat_cuahang"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginBottom="15dp"

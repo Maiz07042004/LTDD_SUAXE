@@ -33,24 +33,27 @@ import com.example.ltdd_suaxe.nDoiMatKhau_Activity;
 
 public class SettingsFragmentUser extends Fragment {
     private View mView;
-    private RelativeLayout rlDeleteAccount, rlLogout , rlInfo,cuahangdaluu,doiMk;
-    private ImageView edit;
+    private RelativeLayout rlDeleteAccount, rlLogout,rlInfo;
 
     @SuppressLint("WrongViewCast")
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
+
+
+
+
+
         mView = inflater.inflate(R.layout.fragment_settings_user, container, false);
 
         // Ánh xạ các RelativeLayout
         rlDeleteAccount = mView.findViewById(R.id.txt_XoaTk);
         rlLogout = mView.findViewById(R.id.DangXuat);
-        rlInfo=mView.findViewById(R.id.thongtincanhan);
-        edit=mView.findViewById(R.id.edit);
-        cuahangdaluu = mView.findViewById(R.id.cuahangdaluu);
-        doiMk = mView.findViewById(R.id.txt_Doimk);
 
+        rlInfo = mView.findViewById(R.id.thongtincanhan);
+
+        RelativeLayout cuahangdaluu = mView.findViewById(R.id.cuahangdaluu);
         cuahangdaluu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,7 +61,7 @@ public class SettingsFragmentUser extends Fragment {
                 startActivity(intent);
             }
         });
-
+        RelativeLayout doiMk = mView.findViewById(R.id.txt_Doimk);
         doiMk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,14 +79,7 @@ public class SettingsFragmentUser extends Fragment {
             }
         });
 
-        edit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Chuyển từ Fragment 4 sang Fragment 3
-                ViewPager2 viewPager = getActivity().findViewById(R.id.view_pager_home_user);
-                viewPager.setCurrentItem(2, true);
-            }
-        });
+
         // Thiết lập sự kiện click cho "Xoá tài khoản"
         rlDeleteAccount.setOnClickListener(new View.OnClickListener() {
             @Override
