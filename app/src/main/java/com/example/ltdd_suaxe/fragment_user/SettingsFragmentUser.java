@@ -26,6 +26,8 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.ltdd_suaxe.R;
 import com.example.ltdd_suaxe.User_CuaHang_Activity;
+import com.example.ltdd_suaxe.User_Home_Activity;
+import com.example.ltdd_suaxe.h_login_activity;
 import com.example.ltdd_suaxe.nCuaHangDaLuu_Activity;
 import com.example.ltdd_suaxe.nDoiMatKhau_Activity;
 
@@ -123,10 +125,10 @@ public class SettingsFragmentUser extends Fragment {
                 // Xử lý hành động khi người dùng nhấn "Submit"
                 if (title.equals("Xoá tài khoản")) {
                     Toast.makeText(getContext(), "Tài khoản đã bị xoá", Toast.LENGTH_SHORT).show();
-                    // Thực hiện logic xoá tài khoản tại đây
+                    goToLoginActivity();
                 } else if (title.equals("Đăng xuất")) {
                     Toast.makeText(getContext(), "Đăng xuất thành công", Toast.LENGTH_SHORT).show();
-                    // Thực hiện logic đăng xuất tại đây
+                    goToLoginActivity();
                 }
             }
         });
@@ -135,4 +137,14 @@ public class SettingsFragmentUser extends Fragment {
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
+    private void goToLoginActivity() {
+        Intent intent = new Intent(getActivity(), h_login_activity.class); // Chuyển sang LoginActivity
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK); // Xóa stack hiện tại
+        startActivity(intent); // Bắt đầu LoginActivity
+
+        if (getActivity() != null) {
+            getActivity().finish(); // Đóng Activity hiện tại nếu không phải null
+        }
+    }
+
 }
