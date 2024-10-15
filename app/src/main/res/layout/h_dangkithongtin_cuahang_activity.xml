@@ -156,7 +156,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="38dp"
         android:ems="10"
-        android:inputType="textPassword" />
+        android:inputType="text" />
 
 
     <EditText
@@ -168,7 +168,7 @@
 
         android:layout_marginEnd="36dp"
         android:ems="10"
-        android:inputType="textPassword" />
+        android:inputType="text" />
 
     <Button
         android:id="@+id/button_dangki_cuahang"

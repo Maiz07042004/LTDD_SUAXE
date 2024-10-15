@@ -151,21 +151,6 @@
         android:text="Bạn chưa có tài khoản? Đăng ký" />
 
     <TextView
-        android:id="@+id/textView9"
-        android:layout_width="199dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/button_login"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="106dp"
-        android:layout_marginTop="175dp"
-        android:layout_marginEnd="105dp"
-        android:textColor="@color/black"
-        android:gravity="center"
-        android:fontFamily="sans-serif-black"
-        android:text="Tài khoản cửa hàng" />
-
-    <TextView
         android:id="@+id/textview_phu_loginuser"
         android:layout_width="199dp"
         android:layout_height="wrap_content"
