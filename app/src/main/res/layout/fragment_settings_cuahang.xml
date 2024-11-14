@@ -39,7 +39,7 @@
             android:id="@+id/imageViewAvatar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/image_user"
+            app:srcCompat="@drawable/image_ic_cuahang"
             android:layout_marginLeft="30dp"
             android:layout_centerVertical="true"/>
         <LinearLayout
@@ -55,12 +55,12 @@
                 android:layout_height="30dp"
                 android:textStyle="bold"
                 android:textSize="15sp"
-                android:text="Đặng Thanh Mai"/>
+                android:text="Thanh Mai Garage"/>
             <TextView
                 android:layout_width="215dp"
                 android:layout_height="30dp"
                 android:textSize="15sp"
-                android:text="dangmai19112016@gmail.com"/>
+                android:text="dangmaigarage@gmail.com"/>
         </LinearLayout>
 
         <ImageView
@@ -87,6 +87,7 @@
         android:orientation="vertical">
 
         <RelativeLayout
+            android:id="@+id/thongtincanhan_cuahang"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginBottom="15dp"
@@ -158,6 +159,42 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/doimatkhau_cuahang"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="15dp">
+
+            <ImageView
+                android:id="@+id/ic_settings_resetPassword"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/ic_settings_resetpassword" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@+id/ic_settings_resetPassword"
+                android:text="Đổi mật khẩu"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                app:srcCompat="@drawable/ic_keyboard_arrow_right_24" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/xoataikhoan_cuahang"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginBottom="15dp"
@@ -193,40 +230,7 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginBottom="15dp"
-            >
-
-            <ImageView
-                android:id="@+id/ic_settings_resetPassword"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="15dp"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_alignParentStart="true"
-                android:src="@drawable/ic_settings_resetpassword" />
-            <TextView
-                android:layout_toRightOf="@+id/ic_settings_resetPassword"
-                android:layout_marginLeft="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Đổi mật khẩu"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_centerVertical="true"
-                />
-
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                app:srcCompat="@drawable/ic_keyboard_arrow_right_24"
-                android:layout_alignParentEnd="true"
-                android:layout_marginRight="20dp"
-                android:layout_centerVertical="true"/>
-        </RelativeLayout>
-        <RelativeLayout
+            android:id="@+id/dangxuat_cuahang"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginBottom="15dp"
@@ -318,6 +322,7 @@
                 android:layout_centerVertical="true"/>
         </RelativeLayout>
         <RelativeLayout
+            android:id="@+id/DangXuat_cuahang"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginBottom="15dp"
