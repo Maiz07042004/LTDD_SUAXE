@@ -64,6 +64,9 @@
             android:name=".User_CuaHang_Activity"
             android:exported="true" />
         <activity
+            android:name=".h_chitietdathang_danhgia"
+            android:exported="true" />
+        <activity
             android:name=".User_Home_Activity"
             android:exported="false" />
         <activity
