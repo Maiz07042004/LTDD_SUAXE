@@ -42,7 +42,7 @@ public class ThongBao_Activity extends AppCompatActivity {
         adapter1 = new ThongBaoAdapter(this, notificationListCu);
         listView1.setAdapter(adapter1);
 
-        // Sự kiện nhấp vào mục trong ListView
+
         listView.setOnItemClickListener((parent, view, position, id) -> {
             ThongBao notification = notificationList.get(position);
             Toast.makeText(ThongBao_Activity.this, "Đã chọn: " + notification.getTitle(), Toast.LENGTH_SHORT).show();
