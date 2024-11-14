@@ -2,6 +2,7 @@ package com.example.ltdd_suaxe;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -21,7 +22,7 @@ public class CuaHangDetail_Activity extends AppCompatActivity {
     TextView like;
     ImageView imgCuaHang;
     ImageView imgLuu; // Thêm ImageView cho lưu cửa hàng
-    Button btn;
+    Button btn, btnCall; // Thêm nút gọi
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +62,16 @@ public class CuaHangDetail_Activity extends AppCompatActivity {
             }
         });
 
+        btnCall.setOnClickListener(new View.OnClickListener() { // Thêm sự kiện cho nút gọi
+            @Override
+            public void onClick(View view) {
+                String phoneNumber = sdt.getText().toString(); // Lấy số điện thoại từ TextView
+                Intent callIntent = new Intent(Intent.ACTION_DIAL); // Hoặc Intent.ACTION_CALL để gọi trực tiếp
+                callIntent.setData(Uri.parse("tel:" + phoneNumber));
+                startActivity(callIntent);
+            }
+        });
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -74,6 +85,7 @@ public class CuaHangDetail_Activity extends AppCompatActivity {
         like = findViewById(R.id.like);
         imgCuaHang = findViewById(R.id.image_cuahang);
         imgLuu = findViewById(R.id.luu); // Khởi tạo ImageView lưu
+        btnCall = findViewById(R.id.call_button); // Khởi tạo nút gọi
     }
 
     private void saveStore() {
