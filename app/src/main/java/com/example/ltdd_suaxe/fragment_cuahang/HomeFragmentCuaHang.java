@@ -13,16 +13,17 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.ltdd_suaxe.CuaHang_Activity;
-import com.example.ltdd_suaxe.Quan;
+import com.example.ltdd_suaxe.Model.Quan;
 import com.example.ltdd_suaxe.QuanAdapter;
 import com.example.ltdd_suaxe.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class HomeFragmentCuaHang extends Fragment {
     private View mView;
     ListView lvQuan;
-    ArrayList<Quan> arrayQuan;
+    List<Quan> arrayQuan;
     QuanAdapter adapter;
 
     @Nullable
@@ -45,11 +46,11 @@ public class HomeFragmentCuaHang extends Fragment {
     }
     private void AnhXa(){
         lvQuan=(ListView) mView.findViewById(R.id.list_quan);
-        arrayQuan=new ArrayList<>();
-        arrayQuan.add(new Quan("Quận Hải Châu","Khu vực trung tâm với nhiều cửa hàng sửa chữa",R.drawable.quan_haichau));
-        arrayQuan.add(new Quan("Quận Liên Chiểu","Khu vực trung tâm với nhiều cửa hàng sửa chữa",R.drawable.quan_lienchieu));
-        arrayQuan.add(new Quan("Quận Cẩm Lệ","Khu vực trung tâm với nhiều cửa hàng sửa chữa",R.drawable.quan_camle));
-        arrayQuan.add(new Quan("Quận Thanh Khê","Khu vực trung tâm với nhiều cửa hàng sửa chữa",R.drawable.quan_thanhkhe));
-        arrayQuan.add(new Quan("Quận Thanh Khê","Khu vực trung tâm với nhiều cửa hàng sửa chữa",R.drawable.quan_thanhkhe));
+//        arrayQuan=new List<Quan>();
+//        arrayQuan.add(new Quan("Quận Hải Châu","Khu vực trung tâm với nhiều cửa hàng sửa chữa","https://cdn.tuoitre.vn/thumb_w/480/471584752817336320/2023/12/14/hai-chau-1-17025207586071731071527.jpg"));
+//        arrayQuan.add(new Quan("Quận Liên Chiểu","Khu vực trung tâm với nhiều cửa hàng sửa chữa",R.drawable.quan_lienchieu));
+//        arrayQuan.add(new Quan("Quận Cẩm Lệ","Khu vực trung tâm với nhiều cửa hàng sửa chữa",R.drawable.quan_camle));
+//        arrayQuan.add(new Quan("Quận Thanh Khê","Khu vực trung tâm với nhiều cửa hàng sửa chữa",R.drawable.quan_thanhkhe));
+//        arrayQuan.add(new Quan("Quận Thanh Khê","Khu vực trung tâm với nhiều cửa hàng sửa chữa",R.drawable.quan_thanhkhe));
     }
 }

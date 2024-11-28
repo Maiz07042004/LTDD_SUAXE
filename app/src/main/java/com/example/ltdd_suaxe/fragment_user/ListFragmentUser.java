@@ -11,19 +11,14 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
-import com.example.ltdd_suaxe.CuaHang;
 import com.example.ltdd_suaxe.LichSuDat;
 import com.example.ltdd_suaxe.LichSuDatAdapter;
-import com.example.ltdd_suaxe.Quan;
-import com.example.ltdd_suaxe.QuanAdapter;
 import com.example.ltdd_suaxe.R;
 import com.example.ltdd_suaxe.dathang_user_tab.ListViewPagerAdapterUser;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 
 public class ListFragmentUser extends Fragment {
 

@@ -8,9 +8,11 @@
 
     <ImageView
         android:id="@+id/imageView_quan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/quan_haichau" />
+        android:layout_width="119dp"
+        android:layout_height="71dp"
+        app:srcCompat="@drawable/quan_haichau"
+        android:layout_marginLeft="3dp"
+        android:src="@drawable/bogoc_hinh" />
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

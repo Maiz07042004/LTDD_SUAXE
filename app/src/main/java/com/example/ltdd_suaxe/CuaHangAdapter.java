@@ -8,6 +8,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.ltdd_suaxe.Model.CuaHang;
+
 import java.util.List;
 
 public class CuaHangAdapter extends BaseAdapter {
