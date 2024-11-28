@@ -51,7 +51,7 @@
         />
 
     <TextView
-        android:id="@+id/textViewtaikhoan"
+        android:id="@+id/textViewSDT"
         android:layout_width="135dp"
         android:layout_height="36dp"
         android:layout_below="@+id/textView_noidung"
@@ -59,15 +59,15 @@
         android:layout_marginStart="62dp"
         android:layout_marginTop="41dp"
         android:fontFamily="sans-serif-black"
-        android:text="Tài khoản"
+        android:text="Số điện thoại"
         android:textColor="@color/black"
         android:textSize="22dp" />
 
     <EditText
-        android:id="@+id/text_taikhoan"
+        android:id="@+id/text_SDT"
         android:layout_width="276dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewtaikhoan"
+        android:layout_below="@+id/textViewSDT"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="64dp"
@@ -79,7 +79,7 @@
         android:id="@+id/textViewmatkhau"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/text_taikhoan"
+        android:layout_below="@+id/text_SDT"
         android:layout_alignParentStart="true"
 
         android:layout_marginStart="65dp"
@@ -90,7 +90,7 @@
         android:textSize="22dp" />
 
     <EditText
-        android:id="@+id/TextPassword"
+        android:id="@+id/textPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textViewmatkhau"
@@ -120,7 +120,7 @@
         android:id="@+id/checkBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/TextPassword"
+        android:layout_below="@+id/textPassword"
         android:layout_alignParentStart="true"
         android:layout_marginStart="40dp"
         android:layout_marginTop="6dp"
@@ -131,7 +131,7 @@
         android:id="@+id/textView"
         android:layout_width="115dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/TextPassword"
+        android:layout_below="@+id/textPassword"
         android:layout_marginStart="80dp"
         android:layout_marginTop="14dp"
         android:layout_toEndOf="@+id/checkBox"
