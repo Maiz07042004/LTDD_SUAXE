@@ -1,12 +1,15 @@
 package com.example.ltdd_suaxe.fragment_user;
 
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.content.Intent;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -24,6 +28,11 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.example.ltdd_suaxe.API.APIService;
+import com.example.ltdd_suaxe.API.RetrofitApp;
+import com.example.ltdd_suaxe.Model.CapNhatKhachHangRequest;
+import com.example.ltdd_suaxe.Model.CuaHang;
+import com.example.ltdd_suaxe.Model.User;
 import com.example.ltdd_suaxe.R;
 import com.example.ltdd_suaxe.User_CuaHang_Activity;
 import com.example.ltdd_suaxe.User_Home_Activity;
@@ -31,9 +40,15 @@ import com.example.ltdd_suaxe.h_login_activity;
 import com.example.ltdd_suaxe.nCuaHangDaLuu_Activity;
 import com.example.ltdd_suaxe.nDoiMatKhau_Activity;
 
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class SettingsFragmentUser extends Fragment {
     private View mView;
-    private RelativeLayout rlDeleteAccount, rlLogout,rlInfo;
+    private RelativeLayout rlDeleteAccount, rlLogout,rlInfo,cuahangdaluu,doiMk;
+    private TextView tvTenKH,tvEmailKH;
 
     @SuppressLint("WrongViewCast")
     @Nullable
@@ -41,19 +56,19 @@ public class SettingsFragmentUser extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
 
-
-
-
-
         mView = inflater.inflate(R.layout.fragment_settings_user, container, false);
 
-        // Ánh xạ các RelativeLayout
-        rlDeleteAccount = mView.findViewById(R.id.txt_XoaTk);
-        rlLogout = mView.findViewById(R.id.DangXuat);
+        AnhXa();
 
-        rlInfo = mView.findViewById(R.id.thongtincanhan);
+        // Lấy SharedPreferences
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences("user_prefs", MODE_PRIVATE);
 
-        RelativeLayout cuahangdaluu = mView.findViewById(R.id.cuahangdaluu);
+// Lấy userId từ SharedPreferences
+        String userId = sharedPreferences.getString("userId", null);  // Nếu không có giá trị, trả về null
+
+        detailKhachHang(userId);
+
+        //Thiết lập sự kiện cho "Cửa hàng đã lưu"
         cuahangdaluu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,7 +76,8 @@ public class SettingsFragmentUser extends Fragment {
                 startActivity(intent);
             }
         });
-        RelativeLayout doiMk = mView.findViewById(R.id.txt_Doimk);
+
+        //Thiết lập sự kiện cho "Đổi mật khẩu"
         doiMk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,6 +86,7 @@ public class SettingsFragmentUser extends Fragment {
             }
         });
 
+        //Thiết lập sự kiện cho "Thông tin tài khoản"
         rlInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -141,6 +158,46 @@ public class SettingsFragmentUser extends Fragment {
         if (getActivity() != null) {
             getActivity().finish(); // Đóng Activity hiện tại nếu không phải null
         }
+    }
+
+    private void detailKhachHang(String userId){
+        // Khởi tạo ApiService
+        APIService apiService = RetrofitApp.getRetrofitInstance().create(APIService.class);
+
+
+
+        // Gọi API để lấy thông tin khách hàng
+        Call<User> call = apiService.getUserDetail(userId);
+        call.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                if (response.isSuccessful()) {
+                    User user = response.body();
+                    // Hiển thị dữ liệu lên UI
+                    tvTenKH.setText(user.getTenKhachHang());
+                    tvEmailKH.setText(user.getEmail());
+
+                } else {
+                    Toast.makeText(getContext(), "Bạn chưa lưu cửa hàng này", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                Toast.makeText(getContext(), "Lỗi kết nối: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void AnhXa(){
+        tvTenKH=mView.findViewById(R.id.ten_khachhang);
+        tvEmailKH=mView.findViewById(R.id.email_khachhang);
+        // Ánh xạ các RelativeLayout
+        rlDeleteAccount = mView.findViewById(R.id.txt_XoaTk);
+        rlLogout = mView.findViewById(R.id.DangXuat);
+        rlInfo = mView.findViewById(R.id.thongtincanhan);
+        cuahangdaluu = mView.findViewById(R.id.cuahangdaluu);
+        doiMk = mView.findViewById(R.id.txt_Doimk);
     }
 
 }

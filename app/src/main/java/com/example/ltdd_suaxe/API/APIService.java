@@ -27,8 +27,8 @@ public interface APIService {
     @GET("users/detail/{userId}")  // Lấy ra tông tin cá nhân khách hàng
     Call<User> getUserDetail(@Path("userId") String userId);
 
-    @GET("users/update/{userId}")  //Cập nhật thông tin khách hàng
-    Call<User> updateUser(@Path("userId") String userId, @Body CapNhatKhachHangRequest capNhatKhachHangRequest);
+    @POST("users/update/{userId}")  //Cập nhật thông tin khách hàng
+    Call<ResponseChung> updateUser(@Path("userId") String userId, @Body CapNhatKhachHangRequest capNhatKhachHangRequest);
 
     @POST("users/login")  // Api Login
     Call<LoginResponse> loginUser(@Body LoginRequest loginRequest);

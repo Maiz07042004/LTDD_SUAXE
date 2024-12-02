@@ -15,10 +15,20 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.example.ltdd_suaxe.API.APIService;
+import com.example.ltdd_suaxe.API.RetrofitApp;
 import com.example.ltdd_suaxe.R;
 import com.example.ltdd_suaxe.h_login_activity;
 import com.example.ltdd_suaxe.nCuaHangDaLuu_Activity;
 import com.example.ltdd_suaxe.nDoiMatKhau_Activity;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class SettingsFragmentCuaHang extends Fragment  {
     private View mView;
