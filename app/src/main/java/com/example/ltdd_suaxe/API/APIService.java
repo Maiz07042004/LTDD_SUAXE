@@ -44,13 +44,17 @@ public interface APIService {
     @GET("cuaHang/detail/{IdCuaHang}")
     Call<CuaHang> getCuaHangDetail(@Path("IdCuaHang") String idCuaHang);
 
-    // Lưu của khách hàng
+    // Lưu cửa hàng đã lưu khách hàng
     @POST("cuaHang/luu-cua-hang/{userId}")
     Call<ResponseBody> luuCuaHang(@Path("userId") String userId, @Body Map<String, String> body);
 
     // Lấy ra danh sách cửa hàng đã lưu
     @GET("cuaHang/cua-hang-da-luu/{userId}")
     Call<List<CuaHang>> getCuaHangDaLuu(@Path("userId") String userId);
+
+    // Xoá cửa hàng đã lưu khỏi danh sách
+    @POST("cuaHang/xoa-cua-hang-da-luu/{userId}")
+    Call<ResponseBody> deleteCuaHangDaLuu(@Path("userId") String userId, @Body Map<String, String> body);
 
     // Tạo đơn sửa chữa
     @POST("donSuaChua/create")

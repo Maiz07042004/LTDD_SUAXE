@@ -42,7 +42,7 @@ public class nCuaHangDaLuu_Activity extends AppCompatActivity {
 
 
 //        loadSavedStores(); // Tải danh sách cửa hàng đã lưu
-        adapter = new nCuaHangDaLuu_Adapter(this, R.layout.ndong_cuahangdaluu, arraynCuaHangDaLuu);
+        adapter = new nCuaHangDaLuu_Adapter(this, R.layout.ndong_cuahangdaluu, arraynCuaHangDaLuu,userId);
         lvnCuaHangDaLuu.setAdapter(adapter);
 
         getCuaHangDaLuu(userId);
