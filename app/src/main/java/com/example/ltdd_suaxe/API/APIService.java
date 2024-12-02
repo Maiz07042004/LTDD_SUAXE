@@ -2,6 +2,7 @@ package com.example.ltdd_suaxe.API;
 
 import com.example.ltdd_suaxe.Model.CapNhatKhachHangRequest;
 import com.example.ltdd_suaxe.Model.CuaHang;
+import com.example.ltdd_suaxe.Model.DoiMatKhauRequest;
 import com.example.ltdd_suaxe.Model.DonSuaChuaRequest;
 import com.example.ltdd_suaxe.Model.LoginRequest;
 import com.example.ltdd_suaxe.Model.LoginResponse;
@@ -29,6 +30,9 @@ public interface APIService {
 
     @POST("users/update/{userId}")  //Cập nhật thông tin khách hàng
     Call<ResponseChung> updateUser(@Path("userId") String userId, @Body CapNhatKhachHangRequest capNhatKhachHangRequest);
+
+    @POST("users/updatePassword/{userId}")  //Cập nhật thông tin khách hàng
+    Call<ResponseChung> updatePasswordUser(@Path("userId") String userId, @Body DoiMatKhauRequest doiMatKhauRequest);
 
     @POST("users/login")  // Api Login
     Call<LoginResponse> loginUser(@Body LoginRequest loginRequest);

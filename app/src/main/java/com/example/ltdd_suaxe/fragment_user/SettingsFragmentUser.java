@@ -140,6 +140,12 @@ public class SettingsFragmentUser extends Fragment {
                     Toast.makeText(getContext(), "Tài khoản đã bị xoá", Toast.LENGTH_SHORT).show();
                     goToLoginActivity();
                 } else if (title.equals("Đăng xuất")) {
+                    // Xóa userId khi đăng xuất
+                    SharedPreferences sharedPreferences = getContext().getSharedPreferences("user_prefs", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.clear();
+                    editor.apply();
+
                     Toast.makeText(getContext(), "Đăng xuất thành công", Toast.LENGTH_SHORT).show();
                     goToLoginActivity();
                 }

@@ -1,17 +1,29 @@
 package com.example.ltdd_suaxe;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.example.ltdd_suaxe.API.APIService;
+import com.example.ltdd_suaxe.API.RetrofitApp;
+import com.example.ltdd_suaxe.Model.DoiMatKhauRequest;
+import com.example.ltdd_suaxe.Model.ResponseChung;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class nDoiMatKhau_Activity extends AppCompatActivity {
 
@@ -24,13 +36,13 @@ public class nDoiMatKhau_Activity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_ndoi_mat_khau);
 
-        // Tìm các EditText theo ID
-        oldPassword = findViewById(R.id.editTextTextPassword);
-        newPassword = findViewById(R.id.editTextTextPassword2);
-        confirmPassword = findViewById(R.id.editTextTextPassword3);
+        AnhXa();
+        // Lấy SharedPreferences
+        SharedPreferences sharedPreferences =getSharedPreferences("user_prefs", MODE_PRIVATE);
 
-        // Tìm nút theo ID
-        btnDoiMK = findViewById(R.id.nbtn_doimk);
+// Lấy userId từ SharedPreferences
+        String userId = sharedPreferences.getString("userId", null);  // Nếu không có giá trị, trả về null
+
 
         // Xử lý sự kiện click cho nút
         btnDoiMK.setOnClickListener(new View.OnClickListener() {
@@ -48,7 +60,8 @@ public class nDoiMatKhau_Activity extends AppCompatActivity {
                     showAlert("Lỗi", "Mật khẩu mới và xác nhận mật khẩu không khớp!",false);
                 } else {
                     // Hiển thị thông báo thành công nếu mọi thứ hợp lệ
-                    showAlert("Thông báo", "Bạn đã đổi mật khẩu thành công!",true);
+                    DoiMatKhauRequest doiMatKhauRequest=new DoiMatKhauRequest(oldPassword.getText().toString(),newPassword.getText().toString());
+                    DoiMatKhauKhachHang(userId,doiMatKhauRequest);
                 }
             }
         });
@@ -82,5 +95,39 @@ public class nDoiMatKhau_Activity extends AppCompatActivity {
         // Tạo và hiển thị hộp thoại
         AlertDialog dialog = builder.create();
         dialog.show();
+    }
+
+    private  void DoiMatKhauKhachHang(String userId, DoiMatKhauRequest doiMatKhauRequest){
+// Khởi tạo APIService
+        APIService apiService = RetrofitApp.getRetrofitInstance().create(APIService.class);
+
+        // Gọi API cập nhật thông tin khách hàng
+        Call<ResponseChung> call = apiService.updatePasswordUser(userId, doiMatKhauRequest);
+        call.enqueue(new Callback<ResponseChung>() {
+            @Override
+            public void onResponse(Call<ResponseChung> call, Response<ResponseChung> response) {
+                if (response.isSuccessful()) {
+                    if(response.body().getCode()==200){
+                        showAlert("Thông báo", "Bạn đã đổi mật khẩu thành công!",true);
+                    } else{
+                        showAlert("Lỗi", response.body().getMessage(),false);
+                    }
+                } else {
+                    // Thông báo lỗi
+                    Toast.makeText(nDoiMatKhau_Activity.this, "Cập nhật thất bại, vui lòng thử lại!", Toast.LENGTH_SHORT).show();
+                }
+            }
+            @Override
+            public void onFailure(Call<ResponseChung> call, Throwable t) {
+                // Thông báo lỗi kết nối
+                Toast.makeText(nDoiMatKhau_Activity.this, "Lỗi kết nối: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    private void AnhXa(){
+        oldPassword = findViewById(R.id.editTextTextPassword);
+        newPassword = findViewById(R.id.editTextTextPassword2);
+        confirmPassword = findViewById(R.id.editTextTextPassword3);
+        btnDoiMK = findViewById(R.id.nbtn_doimk);
     }
 }
