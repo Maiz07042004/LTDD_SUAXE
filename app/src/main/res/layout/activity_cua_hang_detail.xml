@@ -12,6 +12,7 @@
         android:id="@+id/image_cuahang"
         android:layout_width="match_parent"
         android:layout_height="273dp"
+        android:scaleType="fitXY"
         app:srcCompat="@drawable/cuahang1" />
 
     <TextView

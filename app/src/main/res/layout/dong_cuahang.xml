@@ -7,9 +7,10 @@
 
     <ImageView
         android:id="@+id/imageCuahang"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/cuahang1" />
+        android:layout_width="210dp"
+        android:layout_height="130dp"
+        app:srcCompat="@drawable/cuahang1"
+        android:scaleType="fitXY"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -21,7 +22,7 @@
             android:id="@+id/ten_cuahang"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="30dp"
             android:text="Thanh Mai Garage"
             android:textStyle="bold"
             android:textSize="20dp"

@@ -12,7 +12,8 @@
         android:layout_height="71dp"
         app:srcCompat="@drawable/quan_haichau"
         android:layout_marginLeft="3dp"
-        android:src="@drawable/bogoc_hinh" />
+        android:src="@drawable/bogoc_hinh"
+        android:scaleType="fitXY"/>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -8,6 +8,10 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.ltdd_suaxe.Model.CuaHang;
 
 import java.util.List;
@@ -51,9 +55,15 @@ public class CuaHangAdapter extends BaseAdapter {
 //        Gán giá trị
         CuaHang cuaHang = cuaHangList.get(i);
 
-        txtTen.setText(cuaHang.getTen());
+        txtTen.setText(cuaHang.getTenCuaHang());
         txtLike.setText(String.valueOf(cuaHang.getLike()));
-        imgHinh.setImageResource(cuaHang.getHinh());
+        String imageUrl = cuaHang.getHinhAnh();
+
+        Glide.with(context)
+                .load(imageUrl)
+                .apply(RequestOptions.bitmapTransform(new CenterCrop()))  // Cắt ảnh sao cho phủ đầy ImageView
+                .apply(RequestOptions.bitmapTransform(new RoundedCorners(20))) // Bo góc ảnh với bán kính 20
+                .into(imgHinh);  // Hiển thị ảnh trong ImageView
 
         return view;
     }

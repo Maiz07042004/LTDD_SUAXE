@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.ltdd_suaxe.Model.Quan;
@@ -61,8 +62,9 @@ public class QuanAdapter  extends BaseAdapter {
 
         Glide.with(context)
                 .load(imageUrl)
-                .apply(RequestOptions.bitmapTransform(new RoundedCorners(20))) // 20 là bán kính bo góc// Tải ảnh từ URL
-                .into(imgHinh);  // Hiển thị ảnh trong ImageView
+                .apply(RequestOptions.bitmapTransform(new CenterCrop()))  // Cắt ảnh sao cho phủ đầy ImageView
+                .apply(RequestOptions.bitmapTransform(new RoundedCorners(20))) // Bo góc ảnh với bán kính 20
+                .into(imgHinh);
 
         return view;
 
