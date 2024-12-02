@@ -1,7 +1,7 @@
 package com.example.ltdd_suaxe.API;
 
+import com.example.ltdd_suaxe.Model.CapNhatKhachHangRequest;
 import com.example.ltdd_suaxe.Model.CuaHang;
-import com.example.ltdd_suaxe.Model.DonSuaChua;
 import com.example.ltdd_suaxe.Model.DonSuaChuaRequest;
 import com.example.ltdd_suaxe.Model.LoginRequest;
 import com.example.ltdd_suaxe.Model.LoginResponse;
@@ -24,24 +24,36 @@ public interface APIService {
     @GET("users")  // Đây là endpoint API bạn cung cấp
     Call<List<User>> getUsers();
 
-    @POST("users/login")  // Endpoint của API
-    Call<LoginResponse> loginUser(@Body LoginRequest loginRequest);  // Gửi request body và nhận response
+    @GET("users/detail/{userId}")  // Lấy ra tông tin cá nhân khách hàng
+    Call<User> getUserDetail(@Path("userId") String userId);
 
-    @GET("quan")
+    @GET("users/update/{userId}")  //Cập nhật thông tin khách hàng
+    Call<User> updateUser(@Path("userId") String userId, @Body CapNhatKhachHangRequest capNhatKhachHangRequest);
+
+    @POST("users/login")  // Api Login
+    Call<LoginResponse> loginUser(@Body LoginRequest loginRequest);
+
+    @GET("quan") //Lấy ra danh sách quận
     Call<List<Quan>> getQuanList();
 
-//  Lấy ra danh sách cửa hàng từ IdQuan
+    // Lấy ra danh sách cửa hàng từ IdQuan
     @GET("cuaHang/{IdQuan}")
     Call<List<CuaHang>> getCuaHangListById(@Path("IdQuan") String idQuan);
 
-//    Lấy ra chi tiết cửa hàng từ IdCuaHang
+    // Lấy ra chi tiết cửa hàng từ IdCuaHang
     @GET("cuaHang/detail/{IdCuaHang}")
     Call<CuaHang> getCuaHangDetail(@Path("IdCuaHang") String idCuaHang);
 
+    // Lưu của khách hàng
     @POST("cuaHang/luu-cua-hang/{userId}")
     Call<ResponseBody> luuCuaHang(@Path("userId") String userId, @Body Map<String, String> body);
 
-    @POST("donSuaChua/create")  // Endpoint của API
+    // Lấy ra danh sách cửa hàng đã lưu
+    @GET("cuaHang/cua-hang-da-luu/{userId}")
+    Call<List<CuaHang>> getCuaHangDaLuu(@Path("userId") String userId);
+
+    // Tạo đơn sửa chữa
+    @POST("donSuaChua/create")
     Call<ResponseChung> createDonSuaChua(@Body DonSuaChuaRequest donSuaChuaRequest);
 }
 

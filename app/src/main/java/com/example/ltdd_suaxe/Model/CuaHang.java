@@ -9,9 +9,10 @@ public class CuaHang {
     private  String DiaChi;
     private int Like;
     private String Email;
+    private String Password;
     private String IdQuan;
 
-    public CuaHang(String _id, String diaChi, String email, String hinhAnh, String idQuan, int like, String moTa, String SDT, String tenCuaHang) {
+    public CuaHang(String _id, String diaChi, String email, String hinhAnh, String idQuan, int like, String moTa, String SDT, String tenCuaHang,String password) {
         this._id = _id;
         DiaChi = diaChi;
         Email = email;
@@ -21,6 +22,15 @@ public class CuaHang {
         MoTa = moTa;
         this.SDT = SDT;
         TenCuaHang = tenCuaHang;
+        Password=password;
+    }
+
+    public String getPassword() {
+        return Password;
+    }
+
+    public void setPassword(String password) {
+        Password = password;
     }
 
     public String get_id() {

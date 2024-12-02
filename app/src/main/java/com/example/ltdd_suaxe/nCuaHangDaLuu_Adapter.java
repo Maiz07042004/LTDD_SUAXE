@@ -8,14 +8,20 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
+import com.example.ltdd_suaxe.Model.CuaHang;
+
 import java.util.List;
 
 public class nCuaHangDaLuu_Adapter extends BaseAdapter {
     private Context context;
     private int layout;
-    private List<nCuaHangDaLuu> ncuaHangDaLuuList;
+    private List<CuaHang> ncuaHangDaLuuList;
 
-    public nCuaHangDaLuu_Adapter(Context context, int layout, List<nCuaHangDaLuu> ncuaHangDaLuuList) {
+    public nCuaHangDaLuu_Adapter(Context context, int layout, List<CuaHang> ncuaHangDaLuuList) {
         this.context = context;
         this.layout = layout;
         this.ncuaHangDaLuuList = ncuaHangDaLuuList;
@@ -45,14 +51,20 @@ public class nCuaHangDaLuu_Adapter extends BaseAdapter {
         TextView txtTen = (TextView) view.findViewById(R.id.ten_cuahang);
         TextView txtLike = (TextView) view.findViewById(R.id.like_cuahang);
         ImageView imgHinh =(ImageView) view.findViewById(R.id.imageCuahang);
-        ImageView imgLuu = (ImageView) view.findViewById(R.id.luu_icon);
+
+
 
         //gán giá trị
-        nCuaHangDaLuu nCuaHangDaLuu = ncuaHangDaLuuList.get(i);
-        txtTen.setText(nCuaHangDaLuu.getTen());
+        CuaHang nCuaHangDaLuu = ncuaHangDaLuuList.get(i);
+        txtTen.setText(nCuaHangDaLuu.getTenCuaHang());
         txtLike.setText(String.valueOf(nCuaHangDaLuu.getLike()));
-        imgHinh.setImageResource(nCuaHangDaLuu.getHinh());
-        imgLuu.setImageResource(nCuaHangDaLuu.getLuu());
+        String imageUrl = nCuaHangDaLuu.getHinhAnh();
+
+        Glide.with(context)
+                .load(imageUrl)
+                .apply(RequestOptions.bitmapTransform(new CenterCrop()))  // Cắt ảnh sao cho phủ đầy ImageView
+                .apply(RequestOptions.bitmapTransform(new RoundedCorners(20))) // Bo góc ảnh với bán kính 20
+                .into(imgHinh);  // Hiển thị ảnh trong ImageView
 
         return view;
     }

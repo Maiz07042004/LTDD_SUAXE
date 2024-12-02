@@ -44,41 +44,12 @@ public class User_CuaHang_Activity extends AppCompatActivity {
         TenQuan = getIntent().getStringExtra("TenQuan");
 
 
-
         AnhXa();
         tvQuan.setText(TenQuan);
         adapter= new CuaHangAdapter(this,R.layout.dong_cuahang,arrayCuaHang);
         lvCuaHang.setAdapter(adapter);
 
-        APIService apiService = RetrofitApp.getRetrofitInstance().create(APIService.class);
-        // Gọi API để lấy danh sách cửa hàng
-        // Gọi API để lấy danh sách cửa hàng
-        Call<List<CuaHang>> call = apiService.getCuaHangListById(IdQuan);
-        call.enqueue(new Callback<List<CuaHang>>() {
-            @Override
-            public void onResponse(Call<List<CuaHang>> call, Response<List<CuaHang>> response) {
-                if (response.isSuccessful()) {
-                    List<CuaHang> cuaHangList = response.body();
-                    if (cuaHangList != null) {
-                        // Cập nhật danh sách cửa hàng vào arrayCuaHang
-                        arrayCuaHang.clear();  // Xóa dữ liệu cũ trong danh sách
-                        arrayCuaHang.addAll(cuaHangList);  // Thêm dữ liệu mới vào
-
-                        // Cập nhật UI sau khi thay đổi dữ liệu
-                        adapter.notifyDataSetChanged();
-                    } else {
-                        Toast.makeText(User_CuaHang_Activity.this, "Không có dữ liệu cửa hàng", Toast.LENGTH_SHORT).show();
-                    }
-                } else {
-                    Toast.makeText(User_CuaHang_Activity.this, "Lỗi: " + response.message(), Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<CuaHang>> call, Throwable t) {
-                Toast.makeText(User_CuaHang_Activity.this, "Lỗi kết nối: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
+        getListCuaHang(IdQuan);
 
 
         // Sự kiện click vào một cửa hàng trong ListView
@@ -113,6 +84,36 @@ public class User_CuaHang_Activity extends AppCompatActivity {
         });
     }
 
+    private void getListCuaHang(String IdQuan) {
+        APIService apiService = RetrofitApp.getRetrofitInstance().create(APIService.class);
+        // Gọi API để lấy danh sách cửa hàng
+        Call<List<CuaHang>> call = apiService.getCuaHangListById(IdQuan);
+        call.enqueue(new Callback<List<CuaHang>>() {
+            @Override
+            public void onResponse(Call<List<CuaHang>> call, Response<List<CuaHang>> response) {
+                if (response.isSuccessful()) {
+                    List<CuaHang> cuaHangList = response.body();
+                    if (cuaHangList != null) {
+                        // Cập nhật danh sách cửa hàng vào arrayCuaHang
+                        arrayCuaHang.clear();  // Xóa dữ liệu cũ trong danh sách
+                        arrayCuaHang.addAll(cuaHangList);  // Thêm dữ liệu mới vào
+
+                        // Cập nhật UI sau khi thay đổi dữ liệu
+                        adapter.notifyDataSetChanged();
+                    } else {
+                        Toast.makeText(User_CuaHang_Activity.this, "Không có dữ liệu cửa hàng", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(User_CuaHang_Activity.this, "Lỗi: " + response.message(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<CuaHang>> call, Throwable t) {
+                Toast.makeText(User_CuaHang_Activity.this, "Lỗi kết nối: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
     private void AnhXa(){
         lvCuaHang=(ListView) findViewById(R.id.list_cuaHang);
         tvQuan=(TextView) findViewById(R.id.tvQuan);
