@@ -38,7 +38,7 @@
         android:src="@drawable/luu" />
 
     <TextView
-        android:id="@+id/mota_cuahang"
+        android:id="@+id/diachi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/ten_cuahang"
@@ -50,7 +50,7 @@
         />
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/mota2_cuahang"
-        android:layout_below="@+id/mota_cuahang"
+        android:layout_below="@+id/diachi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 

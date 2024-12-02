@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -29,7 +30,8 @@ public class User_CuaHang_Activity extends AppCompatActivity {
     ListView lvCuaHang;
     ArrayList<CuaHang> arrayCuaHang;
     CuaHangAdapter adapter;
-    private String IdQuan;
+    private String IdQuan,TenQuan;
+    TextView tvQuan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +41,12 @@ public class User_CuaHang_Activity extends AppCompatActivity {
 
         // Nhận _id quận từ Intent
         IdQuan = getIntent().getStringExtra("IdQuan");
+        TenQuan = getIntent().getStringExtra("TenQuan");
+
+
 
         AnhXa();
+        tvQuan.setText(TenQuan);
         adapter= new CuaHangAdapter(this,R.layout.dong_cuahang,arrayCuaHang);
         lvCuaHang.setAdapter(adapter);
 
@@ -85,17 +91,19 @@ public class User_CuaHang_Activity extends AppCompatActivity {
                 Intent intent = new Intent(User_CuaHang_Activity.this, CuaHangDetail_Activity.class);
 
                 // Tạo Bundle để chứa dữ liệu
-                Bundle bundle = new Bundle();
+//                Bundle bundle = new Bundle();
 //                bundle.putString("ten_cua_hang", selectedCuaHang.getTen());
 //                bundle.putInt("img", selectedCuaHang.getHinh());
 //                bundle.putInt("like", selectedCuaHang.getLike());
 //                bundle.putString("sdt",selectedCuaHang.getSdt());
+                // Truyền _id của quận qua Intent
+
+                intent.putExtra("IdCuaHang", selectedCuaHang.get_id());  // Truyền _id cửa hàng qua Intent
+                startActivity(intent);
 
                 // Đưa Bundle vào Intent
-                intent.putExtras(bundle);
+//                intent.putExtras(bundle);
 
-                // Khởi chạy activity
-                startActivity(intent);
             }
         });
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -107,6 +115,7 @@ public class User_CuaHang_Activity extends AppCompatActivity {
 
     private void AnhXa(){
         lvCuaHang=(ListView) findViewById(R.id.list_cuaHang);
+        tvQuan=(TextView) findViewById(R.id.tvQuan);
         arrayCuaHang=new ArrayList<>();
 //        arrayCuaHang.add(new CuaHang("Thanh Mai Garage",1000,"0364933757",R.drawable.cuahang1));
 //        arrayCuaHang.add(new CuaHang("Nhật Bike",2000,"0364933757",R.drawable.cuahang2));

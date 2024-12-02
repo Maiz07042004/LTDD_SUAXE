@@ -75,6 +75,7 @@ public class HomeFragmentUser extends Fragment {
                 // Truyền _id của quận qua Intent
                 Intent intent = new Intent(getContext(), User_CuaHang_Activity.class);
                 intent.putExtra("IdQuan", quan.get_id());  // Truyền _id quận qua Intent
+                intent.putExtra("TenQuan", quan.getTenQuan());
                 startActivity(intent);
             }
         });
