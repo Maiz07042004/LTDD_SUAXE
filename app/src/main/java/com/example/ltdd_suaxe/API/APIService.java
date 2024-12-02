@@ -1,9 +1,12 @@
 package com.example.ltdd_suaxe.API;
 
 import com.example.ltdd_suaxe.Model.CuaHang;
+import com.example.ltdd_suaxe.Model.DonSuaChua;
+import com.example.ltdd_suaxe.Model.DonSuaChuaRequest;
 import com.example.ltdd_suaxe.Model.LoginRequest;
 import com.example.ltdd_suaxe.Model.LoginResponse;
 import com.example.ltdd_suaxe.Model.Quan;
+import com.example.ltdd_suaxe.Model.ResponseChung;
 import com.example.ltdd_suaxe.Model.User;
 
 import okhttp3.ResponseBody;
@@ -37,5 +40,8 @@ public interface APIService {
 
     @POST("cuaHang/luu-cua-hang/{userId}")
     Call<ResponseBody> luuCuaHang(@Path("userId") String userId, @Body Map<String, String> body);
+
+    @POST("donSuaChua/create")  // Endpoint của API
+    Call<ResponseChung> createDonSuaChua(@Body DonSuaChuaRequest donSuaChuaRequest);
 }
 
