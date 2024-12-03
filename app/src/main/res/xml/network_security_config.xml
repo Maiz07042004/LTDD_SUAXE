@@ -3,6 +3,15 @@
     <base-config cleartextTrafficPermitted="true" />
     <domain-config cleartextTrafficPermitted="true">
 <!--        <domain includeSubdomains="true">192.168.42.1</domain>-->
+<<<<<<< HEAD
         <domain includeSubdomains="true">192.168.220.1</domain>
+=======
+
+        <domain includeSubdomains="true">192.168.1.18</domain>
+
+
+<!--        <domain includeSubdomains="true">192.168.1.149</domain>-->
+
+>>>>>>> 35e2dc66da4f129a0b80a8fe645610bd259e3214
     </domain-config>
 </network-security-config>
