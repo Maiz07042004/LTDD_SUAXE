@@ -163,7 +163,7 @@ public class CuaHangOrder_Activity extends AppCompatActivity {
                 String ghiChu = ghichu.getText().toString().trim();
 
                 DonSuaChuaRequest donSuaChuaRequest=new DonSuaChuaRequest(
-                    IdKhachHang,IdCuaHang,selectedDichVu,diaChi,ghiChu,"create"
+                    IdKhachHang,IdCuaHang,selectedDichVu,diaChi,ghiChu,"ChoXacNhan"
                 );
                 APIService apiService = RetrofitApp.getRetrofitInstance().create(APIService.class);
 
