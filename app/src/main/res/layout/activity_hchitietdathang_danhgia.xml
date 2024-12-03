@@ -253,7 +253,7 @@
             android:layout_alignParentEnd="true"
             android:layout_marginTop="19dp"
             android:layout_marginEnd="95dp"
-            android:text="Đánh giá sản phẩm"
+            android:text="Đánh giá dịch vụ"
             android:textColor="@color/black"
             android:textSize="25dp"
             android:textStyle="bold" />
