@@ -14,11 +14,11 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
-import com.example.ltdd_suaxe.DonYeuCau;
-import com.example.ltdd_suaxe.Model.DonSuaChuaRequest;
+
 import com.example.ltdd_suaxe.Model.DonSuaChua_Daxacnhan;
 import com.example.ltdd_suaxe.R;
-import com.example.ltdd_suaxe.dathang_user_tab.Tab_Fragment_User_DaXacNhan;
+
+import com.example.ltdd_suaxe.nChiTietDatHang_AcTiViTy;
 
 import java.util.List;
 
@@ -70,14 +70,28 @@ public class User_DaXacNhan_Adapter extends BaseAdapter {
         txtNgayDat.setText(donDaXacNhan.getNgayDatDon().toString());
         txtTrangThai.setText(donDaXacNhan.getTrangThai());
         String imageUrl = donDaXacNhan.getHinhAnh();
-
+        String sdt = donDaXacNhan.getSDT();
         Glide.with(context)
                 .load(imageUrl)
                 .apply(RequestOptions.bitmapTransform(new CenterCrop()))  // Cắt ảnh sao cho phủ đầy ImageView
                 .apply(RequestOptions.bitmapTransform(new RoundedCorners(20))) // Bo góc ảnh với bán kính 20
                 .into(imgHinh);
 
+        // Thêm sự kiện onClick cho mỗi item
+        view.setOnClickListener(v -> {
+            Intent intent = new Intent(context, nChiTietDatHang_AcTiViTy.class);
+            intent.putExtra("TenCuaHang", donDaXacNhan.getTenCuaHang());
+            intent.putExtra("DiaChi", donDaXacNhan.getDiaChi());
+            intent.putExtra("DichVu", dichVuString);
+            intent.putExtra("HinhAnh", imageUrl);
+            intent.putExtra("SDT", donDaXacNhan.getSDT());
+            intent.putExtra("TrangThai", donDaXacNhan.getTrangThai());
+            intent.putExtra("NgayDat", donDaXacNhan.getNgayDatDon().toString());
+            context.startActivity(intent);
+        });
+
 
         return view;
     }
+
 }

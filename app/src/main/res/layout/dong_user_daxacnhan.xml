@@ -6,7 +6,8 @@
     android:layout_height="wrap_content"
     android:background="@drawable/custom_coner"
     android:elevation="8dp"
-    android:translationZ="4dp">
+    android:translationZ="4dp"
+  >
     <TextView
         android:id="@+id/ten_cuahang"
         android:layout_width="match_parent"

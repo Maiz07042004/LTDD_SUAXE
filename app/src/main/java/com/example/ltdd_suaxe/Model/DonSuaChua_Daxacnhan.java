@@ -14,8 +14,13 @@ public class DonSuaChua_Daxacnhan{
     private String GhiChu;
     private String TrangThai;
     private String HinhAnh;
+    private String SDT;
 
-    public DonSuaChua_Daxacnhan(String hinhAnh, String trangThai, String ghiChu, String diaChi, List <String> dichVu, Date ngayDatDon, String idCuaHang, String idKhachHang, String tenCuaHang, String _id) {
+
+
+    public DonSuaChua_Daxacnhan(String sdt, String hinhAnh, String trangThai, String ghiChu, String diaChi, List <String> dichVu, Date ngayDatDon, String idCuaHang, String idKhachHang, String tenCuaHang, String _id) {
+
+        SDT = sdt;
         HinhAnh = hinhAnh;
         TrangThai = trangThai;
         GhiChu = ghiChu;
@@ -26,8 +31,15 @@ public class DonSuaChua_Daxacnhan{
         IdKhachHang = idKhachHang;
         TenCuaHang = tenCuaHang;
         this._id = _id;
+
+    }
+    public String getSDT() {
+        return SDT;
     }
 
+    public void setSDT(String SDT) {
+        this.SDT = SDT;
+    }
     public String getHinhAnh() {
         return HinhAnh;
     }

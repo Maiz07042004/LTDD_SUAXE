@@ -50,8 +50,10 @@ public class Tab_Fragment_User_DaXacNhan extends Fragment {
 
         // Dữ liệu mẫu
         String[] dichVu1 = {"Vá xe", "Thay lốp","Sửa còi","Thay nhớt","Sữa chữa điện"};
-
+        String[] dichVu2 = {"Sửa còi","Thay nhớt","Sữa chữa điện"};
+        String[] dichVu3 = {"Thay nhớt","Sữa chữa điện"};
         arrayDonXacNhan.add(new DonSuaChua_Daxacnhan(
+                "0965869182",
                 "https://timthosuaxe.com/wp-content/uploads/2021/05/sua-xe-may-da-nang-thanh-tam.png",
                 "Đã xác nhận",
                 "Không",
@@ -59,11 +61,37 @@ public class Tab_Fragment_User_DaXacNhan extends Fragment {
                 Arrays.asList(dichVu1),
                 new Date(),
                 "21331",
-                "Cửa Hàng Thanh Tâm",
+                "CH003",
                 "Công Hiếu Garage",
                "123"
-        ))
-        ;
+        ));
+        arrayDonXacNhan.add(new DonSuaChua_Daxacnhan(
+                "0965869182",
+                "https://truemotocare.com/wp-content/uploads/2023/10/Cua-hang-sua-xe-Quang-Hau-68-sau-khi-nang-cap-600x450.jpg",
+                "Đã xác nhận",
+                "Không",
+                "16 Võ Nguyên Giáp",
+                Arrays.asList(dichVu2),
+                new Date(),
+                "21331",
+                "CH002",
+                "Thanh Mai Garage",
+                "125"
+        ));
+        arrayDonXacNhan.add(new DonSuaChua_Daxacnhan(
+                "0965869182",
+                "https://truemotocare.com/wp-content/uploads/2023/10/True-Moto-Care-Mr-To-600x630.jpg",
+                "Đã xác nhận",
+                "Không",
+                "16 Võ Nguyên Giáp",
+                Arrays.asList(dichVu3),
+                new Date(),
+                "21331",
+                "CH001",
+                "Minh Nhật Garage",
+                "124"
+        ));
+
     }
 
 }
