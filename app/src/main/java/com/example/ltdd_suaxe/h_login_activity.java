@@ -52,6 +52,17 @@ public class h_login_activity extends AppCompatActivity {
                 startActivity(intent); // Bắt đầu Activity mới
             }
         });
+        // Lấy tham chiếu đến TextView
+        TextView tvDangNhapShop = findViewById(R.id.dangnhap_shop);
+        // Đặt sự kiện click cho TextView
+        tvDangNhapShop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Tạo Intent để chuyển đến NewActivity
+                Intent intent = new Intent(h_login_activity.this, Login_CuaHang_Activity.class);
+                startActivity(intent); // Bắt đầu Activity mới
+            }
+        });
 
     }
     private void Login() {

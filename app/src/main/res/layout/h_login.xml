@@ -44,7 +44,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="82dp"
         android:gravity="center"
-        android:text="Vui lòng đăng nhập để tiếp tục sử dụng ứng dụng của chúng tôi"
+        android:text="Vui lòng đăng nhập tài khoản Khách hàng để tiếp tục sử dụng ứng dụng của chúng tôi"
         android:textColor="@color/black"
         android:textSize="15dp"
 
@@ -150,6 +150,19 @@
         android:layout_marginEnd="106dp"
         android:text="Bạn chưa có tài khoản? Đăng ký" />
 
+
+    <TextView
+        android:id="@+id/dangnhap_shop"
+        android:layout_width="238dp"
+        android:layout_height="24dp"
+        android:layout_below="@+id/button_login"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="86dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="87dp"
+        android:text="Đăng nhập bằng tài khoản Cửa hàng?" />
+
     <TextView
         android:id="@+id/textview_phu_loginuser"
         android:layout_width="199dp"
@@ -157,13 +170,12 @@
         android:layout_below="@+id/button_login"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="106dp"
-        android:layout_marginTop="62dp"
-        android:layout_marginEnd="105dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="77dp"
+        android:layout_marginEnd="103dp"
         android:gravity="center"
 
         android:text="Hoặc kết nối với" />
-
 
     <LinearLayout
         android:layout_width="wrap_content"
