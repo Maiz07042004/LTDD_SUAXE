@@ -13,6 +13,7 @@ public class RetrofitApp {
 //    private static final String BASE_URL = "http://192.168.1." +
 //            "149:3000/api/v1/";
 
+
     private static final String BASE_URL = "http://192.168.1.18:3000/api/v1/";
 
    // private static final String BASE_URL = "http://192.168.1.149:3000/api/v1/";
