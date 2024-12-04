@@ -2,6 +2,7 @@ package com.example.ltdd_suaxe.API;
 
 import com.example.ltdd_suaxe.Model.CapNhatKhachHangRequest;
 import com.example.ltdd_suaxe.Model.CuaHang;
+import com.example.ltdd_suaxe.Model.DangKyKhachHangRequest;
 import com.example.ltdd_suaxe.Model.DoiMatKhauRequest;
 import com.example.ltdd_suaxe.Model.DonSuaChuaRequest;
 import com.example.ltdd_suaxe.Model.DonSuaChua_Daxacnhan;
@@ -25,6 +26,9 @@ public interface APIService {
 
     @GET("users")  // Đây là endpoint API bạn cung cấp
     Call<List<User>> getUsers();
+
+    @POST("users/register")  // Api Login
+    Call<ResponseChung> registerUser(@Body DangKyKhachHangRequest dangKyKhachHangRequest);
 
     @GET("users/detail/{userId}")  // Lấy ra tông tin cá nhân khách hàng
     Call<User> getUserDetail(@Path("userId") String userId);
