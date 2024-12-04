@@ -19,6 +19,7 @@ import com.example.ltdd_suaxe.CuaHang_Activity;
 import com.example.ltdd_suaxe.Model.Quan;
 import com.example.ltdd_suaxe.QuanAdapter;
 import com.example.ltdd_suaxe.R;
+import com.example.ltdd_suaxe.User_CuaHang_Activity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,11 +43,16 @@ public class HomeFragmentCuaHang extends Fragment {
         lvQuan.setAdapter(adapter);
 
         ListQuan();
-
         lvQuan.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                // Lấy thông tin quận đã nhấn
+                Quan quan = arrayQuan.get(position);
+
+                // Truyền _id của quận qua Intent
                 Intent intent = new Intent(getContext(), CuaHang_Activity.class);
+                intent.putExtra("IdQuan", quan.get_id());  // Truyền _id quận qua Intent
+                intent.putExtra("TenQuan", quan.getTenQuan());
                 startActivity(intent);
             }
         });
