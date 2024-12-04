@@ -55,41 +55,37 @@
         android:id="@+id/textViewmatkhau"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editTextText"
+        android:layout_below="@+id/textView_noidung"
         android:layout_alignParentStart="true"
         android:layout_marginStart="52dp"
-        android:layout_marginTop="-4dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="sans-serif-black"
         android:text="Quận"
         android:textColor="@color/black"
         android:textSize="22dp" />
 
-    <TextView
-        android:id="@+id/textViewxnmatkhau"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/editTextTextPassword"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="0dp"
-        android:fontFamily="sans-serif-black"
-        android:text="Phường/xã"
-        android:textColor="@color/black"
-        android:textSize="22dp" />
 
     <TextView
         android:id="@+id/textViewemail_cuahang"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editTextxnmatkhau_cuahang"
+        android:layout_below="@+id/spinner_quan"
         android:layout_alignParentStart="true"
         android:layout_marginStart="51dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="sans-serif-black"
         android:text="Địa chỉ"
         android:textColor="@color/black"
         android:textSize="22dp" />
 
+    <Spinner
+        android:id="@+id/spinner_quan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewmatkhau"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="10dp"/>
     <TextView
         android:id="@+id/textViewemail_cuahang2"
         android:layout_width="wrap_content"
@@ -97,7 +93,7 @@
         android:layout_below="@+id/editTextemail"
         android:layout_alignParentStart="true"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="-2dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="sans-serif-black"
         android:text="Số điện thoại"
         android:textColor="@color/black"
@@ -124,61 +120,41 @@
         android:ems="10"
         android:inputType="text" />
 
-    <EditText
-        android:id="@+id/editTextText"
-        android:layout_width="327dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewtaikhoan_cuahang"
-        android:layout_alignParentEnd="true"
-
-        android:layout_marginEnd="33dp"
-        android:ems="10"
-        android:inputType="text" />
 
     <TextView
-        android:id="@+id/textViewtaikhoan_cuahang"
+        android:id="@+id/textViewemail_mota"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView_noidung"
+        android:layout_below="@+id/editTextemail2"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="53dp"
-        android:layout_marginTop="9dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="14dp"
         android:fontFamily="sans-serif-black"
-        android:text="Thành phố"
+        android:text="Mô tả"
         android:textColor="@color/black"
         android:textSize="22dp" />
 
     <EditText
-        android:id="@+id/editTextxnmatkhau_cuahang"
-        android:layout_width="323dp"
+        android:id="@+id/editTextmota"
+        android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewxnmatkhau"
+        android:layout_below="@+id/textViewemail_mota"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="38dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="41dp"
         android:ems="10"
         android:inputType="text" />
 
-
-    <EditText
-        android:id="@+id/editTextTextPassword"
-        android:layout_width="324dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewmatkhau"
-        android:layout_alignParentEnd="true"
-
-        android:layout_marginEnd="36dp"
-        android:ems="10"
-        android:inputType="text" />
 
     <Button
         android:id="@+id/button_dangki_cuahang"
         android:layout_width="109dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editTextemail2"
+        android:layout_below="@+id/editTextmota"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="148dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="153dp"
         android:background="@drawable/button_register_login"
         android:fontFamily="sans-serif-black"
