@@ -10,7 +10,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 import com.example.ltdd_suaxe.API.APIService;
 import com.example.ltdd_suaxe.API.RetrofitApp;
@@ -21,8 +25,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-
-public class h_login_activity extends AppCompatActivity {
+public class Login_CuaHang_Activity extends AppCompatActivity {
     private EditText edtSDT, edtPassword;
 
     EditText input_taikhoan,input_mk;
@@ -30,7 +33,13 @@ public class h_login_activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.h_login);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_login_cua_hang);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
 
         edtSDT  = findViewById(R.id.text_SDT);
         edtPassword  = findViewById(R.id.textPassword);
@@ -48,18 +57,18 @@ public class h_login_activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Tạo Intent để chuyển đến NewActivity
-                Intent intent = new Intent(h_login_activity.this, h_begin_user_Activity.class);
+                Intent intent = new Intent(Login_CuaHang_Activity.this, h_begin_user_Activity.class);
                 startActivity(intent); // Bắt đầu Activity mới
             }
         });
         // Lấy tham chiếu đến TextView
-        TextView tvDangNhapShop = findViewById(R.id.dangnhap_shop);
+        TextView tvDangNhapKH = findViewById(R.id.dangnhap_khachhang);
         // Đặt sự kiện click cho TextView
-        tvDangNhapShop.setOnClickListener(new View.OnClickListener() {
+        tvDangNhapKH.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Tạo Intent để chuyển đến NewActivity
-                Intent intent = new Intent(h_login_activity.this, Login_CuaHang_Activity.class);
+                Intent intent = new Intent(Login_CuaHang_Activity.this, h_login_activity.class);
                 startActivity(intent); // Bắt đầu Activity mới
             }
         });
@@ -90,7 +99,7 @@ public class h_login_activity extends AppCompatActivity {
                     // Xử lý khi đăng nhập thành công
                     LoginResponse loginResponse = response.body();
                     if (loginResponse.getCode() == 200) {
-                        Toast.makeText(h_login_activity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Login_CuaHang_Activity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
 
                         // Lưu userId vào SharedPreferences
                         SharedPreferences sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE);
@@ -99,13 +108,13 @@ public class h_login_activity extends AppCompatActivity {
                         editor.apply();  // Áp dụng thay đổi
 
                         // Chuyển tới màn hình Home
-                        Intent intent_login = new Intent(h_login_activity.this, User_Home_Activity.class);
+                        Intent intent_login = new Intent(Login_CuaHang_Activity.this, User_Home_Activity.class);
                         startActivity(intent_login);
                     } else {
-                        Toast.makeText(h_login_activity.this, loginResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Login_CuaHang_Activity.this, loginResponse.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(h_login_activity.this, "Đăng nhập thất bại: " + response.code(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Login_CuaHang_Activity.this, "Đăng nhập thất bại: " + response.code(), Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -113,7 +122,7 @@ public class h_login_activity extends AppCompatActivity {
             public void onFailure(Call<LoginResponse> call, Throwable t) {
                 // Xử lý khi yêu cầu thất bại
                 Log.d("Lỗi láo ","Nhạc Trịnh"+t.getMessage());
-                Toast.makeText(h_login_activity.this, "Lỗi: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Login_CuaHang_Activity.this, "Lỗi: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

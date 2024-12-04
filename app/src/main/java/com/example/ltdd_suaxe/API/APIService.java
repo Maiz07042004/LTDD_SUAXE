@@ -4,6 +4,7 @@ import com.example.ltdd_suaxe.Model.CapNhatKhachHangRequest;
 import com.example.ltdd_suaxe.Model.CuaHang;
 import com.example.ltdd_suaxe.Model.DoiMatKhauRequest;
 import com.example.ltdd_suaxe.Model.DonSuaChuaRequest;
+import com.example.ltdd_suaxe.Model.DonSuaChua_Daxacnhan;
 import com.example.ltdd_suaxe.Model.LoginRequest;
 import com.example.ltdd_suaxe.Model.LoginResponse;
 import com.example.ltdd_suaxe.Model.Quan;
@@ -63,5 +64,22 @@ public interface APIService {
     // Tạo đơn sửa chữa
     @POST("donSuaChua/create")
     Call<ResponseChung> createDonSuaChua(@Body DonSuaChuaRequest donSuaChuaRequest);
+
+    //Lấy danh sách đơn sửa chữa theo trạng thái bên khách hàng
+    @GET("donSuaChua/khachHang/{IdKhachHang}/{status}")
+    Call<List<DonSuaChua_Daxacnhan>> getListDonSuaChuaTheoTrangThai(
+            @Path("IdKhachHang") String IdKhachHang,
+            @Path("status") String status
+    );
+
+    //Lấy danh sách đơn sửa chữa bên khách hàng
+    @GET("donSuaChua/khachHang/{IdKhachHang}")
+    Call<List<DonSuaChua_Daxacnhan>> getListDonSuaChua(
+            @Path("IdKhachHang") String IdKhachHang
+    );
+
+    // Update trạng thái đơn sửa chữa
+    @POST("donSuaChua/updateDonSuaChua/{IdDonSuaChua}/{status}")
+    Call<ResponseChung> updateDonSuaChua(@Path("IdDonSuaChua") String IdDonSuaChua, @Path("status") String status);
 }
 

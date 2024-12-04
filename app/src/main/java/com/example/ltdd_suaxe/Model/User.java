@@ -10,6 +10,26 @@ public class User {
     private String GioiTinh;
     private String Password;
     private String TenKhachHang;
+    private String HinhAnh;
+
+    public User(String _id, List<String> cuaHangDaLuu, String email, String gioiTinh, String hinhAnh, String password, String SDT, String tenKhachHang) {
+        this._id = _id;
+        CuaHangDaLuu = cuaHangDaLuu;
+        Email = email;
+        GioiTinh = gioiTinh;
+        HinhAnh = hinhAnh;
+        Password = password;
+        this.SDT = SDT;
+        TenKhachHang = tenKhachHang;
+    }
+
+    public String getHinhAnh() {
+        return HinhAnh;
+    }
+
+    public void setHinhAnh(String hinhAnh) {
+        HinhAnh = hinhAnh;
+    }
 
     // Getter và Setter
     public String get_id() {

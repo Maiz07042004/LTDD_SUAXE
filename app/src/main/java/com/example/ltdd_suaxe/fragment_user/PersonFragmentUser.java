@@ -19,12 +19,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.ltdd_suaxe.API.APIService;
 import com.example.ltdd_suaxe.API.RetrofitApp;
 import com.example.ltdd_suaxe.Model.CapNhatKhachHangRequest;
 import com.example.ltdd_suaxe.Model.ResponseChung;
 import com.example.ltdd_suaxe.Model.User;
 import com.example.ltdd_suaxe.R;
+import com.google.android.material.imageview.ShapeableImageView;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -35,6 +38,7 @@ public class PersonFragmentUser extends Fragment {
     private Spinner spinnerGender;
     private EditText tvTenKH,tvEmailKH,tvSDT;
     private Button btnUpdate;
+    private ShapeableImageView imageView ;
 
     @Nullable
 
@@ -123,6 +127,13 @@ public class PersonFragmentUser extends Fragment {
                     // Gán giá trị giới tính cho Spinner
                     setGenderToSpinner(gender);
 
+                    String imageUrl = user.getHinhAnh(); // URL ảnh
+
+                    Glide.with(getContext())
+                            .load(imageUrl)
+                            .apply(RequestOptions.circleCropTransform()) // Sử dụng Glide để cắt ảnh thành hình tròn
+                            .into(imageView);
+
                 } else {
                     Toast.makeText(getContext(), "Lỗi", Toast.LENGTH_SHORT).show();
                 }
@@ -178,6 +189,6 @@ public class PersonFragmentUser extends Fragment {
         btnUpdate = mView.findViewById(R.id.button3);
         // Khởi tạo Spinner
         spinnerGender = mView.findViewById(R.id.spinnerGender);
-
+        imageView = mView.findViewById(R.id.imageViewUser);
     }
 }

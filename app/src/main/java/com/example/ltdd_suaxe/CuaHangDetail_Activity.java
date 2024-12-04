@@ -49,7 +49,24 @@ public class CuaHangDetail_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_cua_hang_detail);
 
         AnhXa();
-
+        // Nhận dữ liệu từ Intent
+//        Intent intent = getIntent();
+//        String tenCuaHang = intent.getStringExtra("TenCuaHang");
+//        String diaChi = intent.getStringExtra("DiaChi");
+//        String SDT = intent.getStringExtra("SDT");
+//        String hinhAnh = intent.getStringExtra("HinhAnh");
+//
+//        // Gán dữ liệu lên giao diện
+//        this.tenCuaHang.setText(tenCuaHang);
+//        this.diaChi.setText(diaChi);
+//        this.sdt.setText(SDT);
+//        this.diaChi.setText(diaChi);
+//
+//        Glide.with(this)
+//                .load(hinhAnh)
+//                .apply(RequestOptions.bitmapTransform(new CenterCrop()))
+//                .apply(RequestOptions.bitmapTransform(new RoundedCorners(20)))
+//                .into(imgCuaHang);
         // Lấy SharedPreferences
         SharedPreferences sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE);
 

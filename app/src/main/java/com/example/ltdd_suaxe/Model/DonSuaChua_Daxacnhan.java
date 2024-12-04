@@ -15,7 +15,12 @@ public class DonSuaChua_Daxacnhan{
     private String TrangThai;
     private String HinhAnh;
 
-    public DonSuaChua_Daxacnhan(String hinhAnh, String trangThai, String ghiChu, String diaChi, List <String> dichVu, Date ngayDatDon, String idCuaHang, String idKhachHang, String tenCuaHang, String _id) {
+
+
+
+    public DonSuaChua_Daxacnhan( String hinhAnh, String trangThai, String ghiChu, String diaChi, List <String> dichVu, Date ngayDatDon, String idCuaHang, String idKhachHang, String tenCuaHang, String _id) {
+
+
         HinhAnh = hinhAnh;
         TrangThai = trangThai;
         GhiChu = ghiChu;
@@ -26,8 +31,8 @@ public class DonSuaChua_Daxacnhan{
         IdKhachHang = idKhachHang;
         TenCuaHang = tenCuaHang;
         this._id = _id;
-    }
 
+    }
     public String getHinhAnh() {
         return HinhAnh;
     }

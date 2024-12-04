@@ -3,4 +3,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="yellow">#D9C86F</color>
+    <color name="red">#FF0000</color>   <!-- Màu đỏ -->
+    <color name="gray">#B0B0B0</color>  <!-- Màu xám -->
+
+
+    <color name="button_normal">#C7ED5454</color> <!-- Màu nút bình thường -->
+    <color name="button_pressed">#D5D3C0</color> <!-- Màu khi nhấn -->
+    <color name="button_focused">#C54922</color> <!-- Màu khi có focus -->
 </resources>

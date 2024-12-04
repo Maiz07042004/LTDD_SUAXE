@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_register">
+    tools:context=".Login_CuaHang_Activity">
 
     <ImageView
         android:id="@+id/imageView10"
@@ -44,7 +46,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="82dp"
         android:gravity="center"
-        android:text="Vui lòng đăng nhập tài khoản Khách hàng để tiếp tục sử dụng ứng dụng của chúng tôi"
+        android:text="Vui lòng đăng nhập tài khoản Cửa hàng để tiếp tục sử dụng ứng dụng của chúng tôi"
         android:textColor="@color/black"
         android:textSize="15dp"
 
@@ -152,16 +154,16 @@
 
 
     <TextView
-        android:id="@+id/dangnhap_shop"
-        android:layout_width="238dp"
-        android:layout_height="24dp"
+        android:id="@+id/dangnhap_khachhang"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/button_login"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="86dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="87dp"
-        android:text="Đăng nhập bằng tài khoản Cửa hàng?" />
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="77dp"
+        android:text="Đăng nhập bằng tài khoản khách hàng?" />
 
     <TextView
         android:id="@+id/textview_phu_loginuser"
@@ -170,9 +172,9 @@
         android:layout_below="@+id/button_login"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="108dp"
-        android:layout_marginTop="77dp"
-        android:layout_marginEnd="103dp"
+        android:layout_marginStart="106dp"
+        android:layout_marginTop="79dp"
+        android:layout_marginEnd="105dp"
         android:gravity="center"
 
         android:text="Hoặc kết nối với" />

@@ -12,36 +12,32 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
-
 import com.example.ltdd_suaxe.API.APIService;
 import com.example.ltdd_suaxe.API.RetrofitApp;
 import com.example.ltdd_suaxe.Model.DonSuaChua_Daxacnhan;
 import com.example.ltdd_suaxe.Model.ResponseChung;
 import com.example.ltdd_suaxe.R;
-
 import com.example.ltdd_suaxe.nChiTietDatHang_AcTiViTy;
 
 import java.text.SimpleDateFormat;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class User_DaXacNhan_Adapter extends BaseAdapter {
-
+public class User_ChoXacNhan_Adapter extends BaseAdapter {
     private Context context;
     private int layout;
     private List<DonSuaChua_Daxacnhan> daxacnhanList;
+    private Button btnCancel;
 
-    public User_DaXacNhan_Adapter(Context context, int layout, List<DonSuaChua_Daxacnhan> daxacnhanList) {
+    public User_ChoXacNhan_Adapter(Context context, int layout, List<DonSuaChua_Daxacnhan> daxacnhanList) {
         this.context = context;
         this.layout = layout;
         this.daxacnhanList = daxacnhanList;
@@ -73,6 +69,7 @@ public class User_DaXacNhan_Adapter extends BaseAdapter {
         TextView txtNgayDat=(TextView) view.findViewById(R.id.ngaydat);
         TextView txtTrangThai=(TextView) view.findViewById(R.id.trangthai);
         ImageView imgHinh=(ImageView) view.findViewById(R.id.imgCuaHang);
+        btnCancel=view.findViewById(R.id.btnCancel);
 
         //        Gán giá trị
         DonSuaChua_Daxacnhan donDaXacNhan=daxacnhanList.get(i);
@@ -108,6 +105,12 @@ public class User_DaXacNhan_Adapter extends BaseAdapter {
                 .apply(RequestOptions.bitmapTransform(new RoundedCorners(20))) // Bo góc ảnh với bán kính 20
                 .into(imgHinh);
 
+        // Set sự kiện OnClick cho Button
+        btnCancel.setOnClickListener(v -> {
+            String IdDonSuaChua = donDaXacNhan.get_id();
+            btnCancel.setText("Đã huỷ");
+            updateDonSuaChua(IdDonSuaChua);
+        });
 
         // Thêm sự kiện onClick cho mỗi item
         view.setOnClickListener(v -> {
@@ -125,4 +128,35 @@ public class User_DaXacNhan_Adapter extends BaseAdapter {
         return view;
     }
 
+    private void updateDonSuaChua(String IdDonSuaChua){
+        // Khởi tạo ApiService
+        APIService apiService = RetrofitApp.getRetrofitInstance().create(APIService.class);
+
+
+        // Gọi API để xóa cửa hàng
+        Call<ResponseChung> call = apiService.updateDonSuaChua(IdDonSuaChua,"DaHuy");
+        call.enqueue(new Callback<ResponseChung>() {
+            @Override
+            public void onResponse(Call<ResponseChung> call, Response<ResponseChung> response) {
+                if (response.isSuccessful()) {
+                    ResponseChung responseChung=response.body();
+                    if(responseChung.getCode()==200){
+                        // Cập nhật lại danh sách sau khi xóa
+                        daxacnhanList   .removeIf(cuaHang -> cuaHang.get_id().equals(IdDonSuaChua   ));
+                        notifyDataSetChanged();  // Cập nhật giao diện
+                        Toast.makeText(context, "Đã huỷ thành công", Toast.LENGTH_SHORT).show();
+                    }else {
+                        Toast.makeText(context, "Lỗi", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(context, "Lỗi", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseChung> call, Throwable t) {
+                Toast.makeText(context, "Lỗi kết nối: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 }

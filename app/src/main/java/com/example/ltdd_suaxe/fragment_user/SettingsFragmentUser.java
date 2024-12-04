@@ -28,6 +28,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.ltdd_suaxe.API.APIService;
 import com.example.ltdd_suaxe.API.RetrofitApp;
 import com.example.ltdd_suaxe.Model.CapNhatKhachHangRequest;
@@ -39,6 +41,7 @@ import com.example.ltdd_suaxe.User_Home_Activity;
 import com.example.ltdd_suaxe.h_login_activity;
 import com.example.ltdd_suaxe.nCuaHangDaLuu_Activity;
 import com.example.ltdd_suaxe.nDoiMatKhau_Activity;
+import com.google.android.material.imageview.ShapeableImageView;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -49,6 +52,7 @@ public class SettingsFragmentUser extends Fragment {
     private View mView;
     private RelativeLayout rlDeleteAccount, rlLogout,rlInfo,cuahangdaluu,doiMk;
     private TextView tvTenKH,tvEmailKH;
+    private ShapeableImageView imageView ;
 
     @SuppressLint("WrongViewCast")
     @Nullable
@@ -60,13 +64,6 @@ public class SettingsFragmentUser extends Fragment {
 
         AnhXa();
 
-        // Lấy SharedPreferences
-        SharedPreferences sharedPreferences = getContext().getSharedPreferences("user_prefs", MODE_PRIVATE);
-
-// Lấy userId từ SharedPreferences
-        String userId = sharedPreferences.getString("userId", null);  // Nếu không có giá trị, trả về null
-
-        detailKhachHang(userId);
 
         //Thiết lập sự kiện cho "Cửa hàng đã lưu"
         cuahangdaluu.setOnClickListener(new View.OnClickListener() {
@@ -115,6 +112,19 @@ public class SettingsFragmentUser extends Fragment {
 
 
         return mView;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Lấy userId từ SharedPreferences
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences("user_prefs", MODE_PRIVATE);
+        String userId = sharedPreferences.getString("userId", null);  // Nếu không có giá trị, trả về null
+
+        // Gọi API để lấy lại dữ liệu mỗi khi fragment được hiển thị
+        if (userId != null) {
+            detailKhachHang(userId);
+        }
     }
 
     // Phương thức hiển thị hộp thoại xác minh
@@ -183,6 +193,12 @@ public class SettingsFragmentUser extends Fragment {
                     tvTenKH.setText(user.getTenKhachHang());
                     tvEmailKH.setText(user.getEmail());
 
+                    String imageUrl = user.getHinhAnh(); // URL ảnh
+
+                    Glide.with(getContext())
+                            .load(imageUrl)
+                            .apply(RequestOptions.circleCropTransform()) // Sử dụng Glide để cắt ảnh thành hình tròn
+                            .into(imageView);
                 } else {
                     Toast.makeText(getContext(), "Bạn chưa lưu cửa hàng này", Toast.LENGTH_SHORT).show();
                 }
@@ -204,6 +220,8 @@ public class SettingsFragmentUser extends Fragment {
         rlInfo = mView.findViewById(R.id.thongtincanhan);
         cuahangdaluu = mView.findViewById(R.id.cuahangdaluu);
         doiMk = mView.findViewById(R.id.txt_Doimk);
+
+        imageView = mView.findViewById(R.id.imageViewAvatar);
     }
 
 }
