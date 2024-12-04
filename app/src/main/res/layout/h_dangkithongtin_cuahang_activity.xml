@@ -82,10 +82,12 @@
         android:id="@+id/spinner_quan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/edittext_background"
         android:layout_below="@id/textViewmatkhau"
         android:layout_marginStart="50dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        />
     <TextView
         android:id="@+id/textViewemail_cuahang2"
         android:layout_width="wrap_content"
@@ -95,7 +97,7 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="10dp"
         android:fontFamily="sans-serif-black"
-        android:text="Số điện thoại"
+        android:text="Tên cửa hàng"
         android:textColor="@color/black"
         android:textSize="22dp" />
 
@@ -133,17 +135,19 @@
         android:text="Mô tả"
         android:textColor="@color/black"
         android:textSize="22dp" />
-
     <EditText
         android:id="@+id/editTextmota"
         android:layout_width="320dp"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
+        android:hint="Nhập mô tả"
+        android:background="@drawable/edittext_background"
+        android:inputType="textMultiLine"
+        android:gravity="top"
         android:layout_below="@+id/textViewemail_mota"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="41dp"
-        android:ems="10"
-        android:inputType="text" />
+        />
 
 
     <Button
