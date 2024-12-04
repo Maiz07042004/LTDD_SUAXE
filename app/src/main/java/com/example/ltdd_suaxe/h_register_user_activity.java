@@ -24,7 +24,7 @@ public class h_register_user_activity extends AppCompatActivity {
         });
 
         // Lấy tham chiếu đến TextView
-        TextView textViewOpenNewActivity = findViewById(R.id.textViewdangkitaikhoancuahang_user);
+        TextView textViewOpenNewActivity = findViewById(R.id.textViewdangkicuahang);
 
         // Đặt sự kiện click cho TextView
         textViewOpenNewActivity.setOnClickListener(new View.OnClickListener() {
