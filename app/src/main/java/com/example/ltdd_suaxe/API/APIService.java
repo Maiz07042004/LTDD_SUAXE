@@ -6,6 +6,7 @@ import com.example.ltdd_suaxe.Model.DangKyKhachHangRequest;
 import com.example.ltdd_suaxe.Model.DoiMatKhauRequest;
 import com.example.ltdd_suaxe.Model.DonSuaChuaRequest;
 import com.example.ltdd_suaxe.Model.DonSuaChua_Daxacnhan;
+import com.example.ltdd_suaxe.Model.LoginCuaHangResponse;
 import com.example.ltdd_suaxe.Model.LoginRequest;
 import com.example.ltdd_suaxe.Model.LoginResponse;
 import com.example.ltdd_suaxe.Model.Quan;
@@ -27,7 +28,7 @@ public interface APIService {
     @GET("users")  // Đây là endpoint API bạn cung cấp
     Call<List<User>> getUsers();
 
-    @POST("users/register")  // Api Login
+    @POST("users/register")
     Call<ResponseChung> registerUser(@Body DangKyKhachHangRequest dangKyKhachHangRequest);
 
     @GET("users/detail/{userId}")  // Lấy ra tông tin cá nhân khách hàng
@@ -85,5 +86,8 @@ public interface APIService {
     // Update trạng thái đơn sửa chữa
     @POST("donSuaChua/updateDonSuaChua/{IdDonSuaChua}/{status}")
     Call<ResponseChung> updateDonSuaChua(@Path("IdDonSuaChua") String IdDonSuaChua, @Path("status") String status);
+
+    @POST("cuaHang/login")  // Api Login
+    Call<LoginCuaHangResponse> loginCuaHang(@Body LoginRequest loginRequest);
 }
 

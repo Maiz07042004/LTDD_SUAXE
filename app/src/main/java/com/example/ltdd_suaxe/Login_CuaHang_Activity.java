@@ -18,6 +18,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.ltdd_suaxe.API.APIService;
 import com.example.ltdd_suaxe.API.RetrofitApp;
+import com.example.ltdd_suaxe.Model.LoginCuaHangResponse;
 import com.example.ltdd_suaxe.Model.LoginRequest;
 import com.example.ltdd_suaxe.Model.LoginResponse;
 
@@ -91,24 +92,24 @@ public class Login_CuaHang_Activity extends AppCompatActivity {
         APIService apiService = RetrofitApp.getRetrofitInstance().create(APIService.class);
 
         // Gửi yêu cầu đăng nhập
-        Call<LoginResponse> call = apiService.loginUser(loginRequest);
-        call.enqueue(new Callback<LoginResponse>() {
+        Call<LoginCuaHangResponse> call = apiService.loginCuaHang(loginRequest);
+        call.enqueue(new Callback<LoginCuaHangResponse>() {
             @Override
-            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+            public void onResponse(Call<LoginCuaHangResponse> call, Response<LoginCuaHangResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     // Xử lý khi đăng nhập thành công
-                    LoginResponse loginResponse = response.body();
+                    LoginCuaHangResponse loginResponse = response.body();
                     if (loginResponse.getCode() == 200) {
                         Toast.makeText(Login_CuaHang_Activity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
 
                         // Lưu userId vào SharedPreferences
                         SharedPreferences sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPreferences.edit();
-                        editor.putString("userId", loginResponse.getUserId());  // Lưu userId
+                        editor.putString("cuaHangId", loginResponse.getCuaHangId());  // Lưu userId
                         editor.apply();  // Áp dụng thay đổi
 
                         // Chuyển tới màn hình Home
-                        Intent intent_login = new Intent(Login_CuaHang_Activity.this, User_Home_Activity.class);
+                        Intent intent_login = new Intent(Login_CuaHang_Activity.this, CuaHang_Home_Activity.class);
                         startActivity(intent_login);
                     } else {
                         Toast.makeText(Login_CuaHang_Activity.this, loginResponse.getMessage(), Toast.LENGTH_SHORT).show();
@@ -119,7 +120,7 @@ public class Login_CuaHang_Activity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<LoginResponse> call, Throwable t) {
+            public void onFailure(Call<LoginCuaHangResponse> call, Throwable t) {
                 // Xử lý khi yêu cầu thất bại
                 Log.d("Lỗi láo ","Nhạc Trịnh"+t.getMessage());
                 Toast.makeText(Login_CuaHang_Activity.this, "Lỗi: " + t.getMessage(), Toast.LENGTH_SHORT).show();
