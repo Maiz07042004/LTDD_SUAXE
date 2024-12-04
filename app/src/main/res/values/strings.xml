@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">LTDD_SUAXE</string>
+
+    <string-array name="gender_array">
+        <item>Nam</item>
+        <item>Nữ</item>
+    </string-array>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

@@ -1,20 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <!-- Thêm quyền gọi điện thoại -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
 
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="LTDD"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LTDD_SUAXE"
         tools:targetApi="31">
         <activity
+            android:name=".Login_CuaHang_Activity"
+            android:exported="false" />
+        <!-- Danh sách các hoạt động trong ứng dụng -->
+        <activity
+            android:name=".ThongBao_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".nDoiMatKhau_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".nChiTietDatHang_AcTiViTy"
+            android:exported="false" />
+        <activity
+            android:name=".nCuaHangDaLuu_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".h_begin_user_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".h_begin_cua_hang_activity"
+            android:exported="false" />
+        <activity
+            android:name=".h_register_cua_hang_activity"
+            android:exported="false" />
+        <activity
+            android:name=".h_activity_allset"
+            android:exported="false" />
+        <activity
+            android:name=".h_register_user_activity"
+            android:exported="false" />
+        <activity
+            android:name=".h_login_activity"
+            android:exported="false" />
+        <activity
+            android:name=".h_dangkithongtin_cuahang_activity"
+            android:exported="false" />
+        <activity
+            android:name=".CuaHangOrder_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".CuaHangDetail_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".CuaHang_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".User_CuaHang_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".h_chitietdathang_danhgia"
+            android:exported="true" />
+        <activity
+            android:name=".User_Home_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".CuaHang_Home_Activity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

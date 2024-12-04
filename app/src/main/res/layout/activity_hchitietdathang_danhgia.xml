@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_below="@+id/chitietdathang"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="ExtraText">
+
+    <!-- Header title -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/header_title"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#DDC64C">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Đánh giá dịch vụ"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Nội dung chứa layout1 và layout2 -->
+    <RelativeLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/header_title"
+        android:layout_marginTop="10dp">
+
+        <!-- Layout 1: màu xanh -->
+
+        <!-- Layout 2: màu trắng xám đè lên layout 1 -->
+        <RelativeLayout
+            android:id="@+id/layout1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/bogoc1"> <!-- Nền xanh với bo góc -->
+
+            <TextView
+                android:id="@+id/textVieww"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Đơn hàng đã thành công"
+                android:textColor="#EBE5E5"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout2"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_below="@id/layout1"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="-20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/bogoc2">
+            <!-- Có thể thêm các phần tử khác trong layout2 nếu cần -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"> <!-- Thay đổi thành vertical để có thể chứa nhiều TextView -->
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Thông tin đơn hàng"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="5dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mã đơn hàng : SXCP01"
+                    android:textSize="10sp"
+                    android:textStyle="normal"
+                    android:textColor="#94121212"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="2dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Trạng thái đơn hàng : Thành công"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="#F71B9287"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="5dp"/>
+                <TextView
+                    android:id="@+id/ngaydat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="22/11/2024"
+                    android:textSize="10sp"
+                    android:textStyle="normal"
+                    android:textColor="#94121212"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="2dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Thông tin người đặt"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="5dp"/>
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/ten_khachhang"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Trần Hiếu"
+                        android:textSize="10sp"
+                        android:textStyle="normal"
+                        android:textColor="#94121212"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="2dp"/>
+                    <TextView
+                        android:id="@+id/sdt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="036493757"
+                        android:layout_toRightOf="@+id/ten_khachhang"
+                        android:textSize="10sp"
+                        android:textStyle="normal"
+                        android:textColor="#94121212"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="2dp"/>
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/diachi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="392 Hùng Vương, phường Vĩnh Trung, quận Thanh Khê, Đà Nẵng"
+                    android:textSize="10sp"
+                    android:textStyle="normal"
+                    android:textColor="#94121212"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="2dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dịch vụ đặt"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="#121212"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="5dp"/>
+                <TextView
+                    android:id="@+id/dichvu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vá lốp"
+                    android:textSize="10sp"
+                    android:textStyle="normal"
+                    android:textColor="#121212"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="2dp"/>
+
+            </LinearLayout>
+
+
+
+        </RelativeLayout>
+
+
+        <Button
+            android:id="@+id/buttongui"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="120dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginEnd="120dp"
+            android:layout_marginBottom="61dp"
+            android:background="@drawable/nedit_button"
+            android:backgroundTintMode="src_in"
+            android:text="Gửi"
+            android:textSize="17dp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layout2"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="62dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="8dp"
+                android:src="@drawable/star" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="8dp"
+                android:src="@drawable/star" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="8dp"
+                android:src="@drawable/star" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="8dp"
+                android:src="@drawable/star" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="8dp"
+                android:src="@drawable/star" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layout2"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="19dp"
+            android:layout_marginEnd="95dp"
+            android:text="Đánh giá dịch vụ"
+            android:textColor="@color/black"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearLayout"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="11dp"
+            android:layout_marginEnd="137dp"
+            android:layout_marginBottom="16dp"
+            android:text="Ý kiến cá nhân"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edittextykien"
+            android:layout_width="322dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearLayout"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="46dp"
+            android:layout_marginEnd="41dp"
+            android:background="@drawable/khung"
+            android:gravity="top"
+            android:hint="Nhập ý kiến của bạn..."
+            android:inputType="textMultiLine"
+            android:lines="5"
+            android:padding="16dp"
+            android:textSize="16sp" />
+
+
+    </RelativeLayout>
+</RelativeLayout>

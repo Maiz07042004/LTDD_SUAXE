@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent">
+
+<com.google.android.material.tabs.TabLayout
+    android:id="@+id/tab_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    app:tabBackground="@drawable/tab_selector"
+    app:tabIndicator="@null"
+    app:tabSelectedTextColor="@android:color/black"
+    app:tabTextColor="@android:color/black"
+    app:tabPaddingStart="16dp"
+    app:tabPaddingEnd="16dp"
+    app:tabPaddingTop="8dp"
+    app:tabPaddingBottom="8dp"
+    app:tabGravity="fill"
+    app:tabMode="scrollable">
+
+    <com.google.android.material.tabs.TabItem
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chờ xác nhận" />
+
+    <com.google.android.material.tabs.TabItem
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Đã xác nhận" />
+    <com.google.android.material.tabs.TabItem
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Đã hoàn thành" />
+    <com.google.android.material.tabs.TabItem
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Đã huỷ" />
+    <com.google.android.material.tabs.TabItem
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lịch sử đặt" />
+</com.google.android.material.tabs.TabLayout>
+<androidx.viewpager2.widget.ViewPager2
+    android:layout_below="@+id/tab_layout"
+    android:id="@+id/viewPager"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"/>
+
+</RelativeLayout>
+

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dong_lichsu"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/custom_coner"
+    android:elevation="8dp"
+    android:translationZ="4dp"
+  >
+    <TextView
+        android:id="@+id/ten_cuahang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:text="Công Hiếu Garage"
+        android:textAlignment="center"
+        android:textSize="25dp"
+        android:textColor="@color/black"
+        />
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ten_cuahang"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <ImageView
+            android:scaleType="fitXY"
+
+            android:id="@+id/imgCuaHang"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="120dp"
+            android:src="@drawable/cuahang1"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvdichvu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dịch vụ"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="19dp"
+                android:textStyle="bold"
+                android:layout_marginTop="15dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_weight="2">
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/dichvu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tvdichvu"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="10dp"
+                        android:text="Vá xăm lốp"
+                        android:textColor="@color/black"
+                        android:textSize="14dp"
+                        tools:ignore="NotSibling" />
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/tv1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ngày đặt"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"/>
+                    <TextView
+                        android:id="@+id/ngaydat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="20/10/2024"
+                        android:layout_below="@+id/tv1"
+                        android:textColor="@color/black"/>
+                </RelativeLayout>
+
+            </LinearLayout>
+            <RelativeLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/tv2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Trạng thái:"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="#27872C"/>
+                <TextView
+                    android:id="@+id/trangthai"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Đã xác nhận"
+                    android:layout_toRightOf="@+id/tv2"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="#27872C"/>
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>

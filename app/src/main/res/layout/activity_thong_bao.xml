@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#f4f4f4">
+
+    <!-- Tiêu đề cho trang -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thông Báo"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#333"
+        android:layout_marginBottom="8dp" />
+
+    <!-- ListView cho thông báo mới -->
+    <TextView
+        android:id="@+id/thongbaoMoi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thông Báo Mới"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#00796b"
+        android:layout_marginBottom="8dp" />
+
+    <ListView
+        android:id="@+id/listViewNotifications"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1dp"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Tiêu đề cho thông báo cũ -->
+    <TextView
+        android:id="@+id/thongbaocu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thông Báo Cũ"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#9e9e9e"
+        android:layout_marginBottom="8dp" />
+
+    <!-- ListView cho thông báo cũ -->
+    <ListView
+        android:id="@+id/listTBcu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1dp" />
+
+</LinearLayout>

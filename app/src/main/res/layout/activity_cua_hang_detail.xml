@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CuaHangDetail_Activity">
+
+
+    <ImageView
+        android:id="@+id/image_cuahang"
+        android:layout_width="match_parent"
+        android:layout_height="273dp"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/cuahang1" />
+
+    <TextView
+        android:id="@+id/ten_cuahang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image_cuahang"
+        android:layout_marginTop="22dp"
+        android:layout_marginLeft="15dp"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:text="Thanh Mai Garage"
+        />
+
+    <ImageView
+        android:id="@+id/luu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image_cuahang"
+        android:layout_marginLeft="71dp"
+        android:layout_marginTop="22dp"
+        android:layout_toRightOf="@id/ten_cuahang"
+        android:src="@drawable/luu" />
+
+    <TextView
+        android:id="@+id/diachi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ten_cuahang"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:textSize="18dp"
+        android:text="100 Mai Lão Bạng-phường Thuận Phước- quận Hải Châu"
+        />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mota2_cuahang"
+        android:layout_below="@+id/diachi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="29dp"
+            android:layout_height="29dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_phone_24" />
+
+        <TextView
+            android:id="@+id/phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="24dp"
+            android:text="0364933757"
+            app:layout_constraintStart_toEndOf="@+id/imageView9"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/imageLike"
+            android:layout_width="31dp"
+            android:layout_height="31dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toEndOf="@+id/phone"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_like_24" />
+        <TextView
+            android:id="@+id/like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="1000"
+            app:layout_constraintStart_toEndOf="@id/imageLike"
+            app:layout_constraintEnd_toStartOf="@id/call_button"
+            app:layout_constraintTop_toTopOf="parent" />
+        <Button
+            android:id="@+id/call_button"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bogoc3"
+            android:drawableLeft="@drawable/ic_phone_24"
+            android:text="Gọi ngay"
+            android:textSize="13dp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="@id/like"
+            app:layout_constraintStart_toEndOf="@id/like"
+            app:layout_constraintTop_toTopOf="@id/like"
+            app:layout_constraintVertical_bias="0.756" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mota2_cuahang"
+        android:layout_marginLeft="15dp"
+        android:textStyle="bold"
+        android:text="Mô tả"
+        android:textSize="20dp"/>
+
+    <TextView
+        android:id="@+id/text_mota"
+        android:layout_width="350dp"
+        android:layout_height="150dp"
+        android:layout_below="@+id/mota2_cuahang"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="43dp"
+        android:layout_marginEnd="35dp"
+        android:background="#CEC9C9"
+        android:padding="10dp"
+        android:scrollbars="vertical"
+        android:text="Cửa hàng sửa xe của chúng tôi cung cấp dịch vụ sửa chữa và bảo dưỡng xe chuyên nghiệp cho mọi loại phương tiện.
+Với đội ngũ kỹ thuật viên lành nghề và giàu kinh nghiệm, chúng tôi cam kết mang đến cho khách hàng các giải pháp sửa chữa chất lượng, nhanh chóng và đáng tin cậy.
+Từ việc thay dầu, kiểm tra phanh, bảo dưỡng động cơ đến sửa chữa các sự cố phức tạp hơn như hệ thống điện và điều hòa, chúng tôi đều xử lý một cách chu đáo và tỉ mỉ."
+        android:textSize="12dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/datdichvu"
+        android:layout_width="match_parent"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/nedit_button"
+        android:layout_height="45dp"
+        android:layout_below="@+id/text_mota"
+        android:layout_marginTop="30dp"
+        android:textStyle="bold"
+        android:textSize="22dp"
+        android:text="Đặt dịch vụ"
+        />
+
+</RelativeLayout>
