@@ -52,6 +52,9 @@ public class ListFragmentCuaHang extends Fragment {
                     case 1:
                         tab.setText("Đã xác nhận");
                         break;
+                    case 2:
+                        tab.setText("Đã hoàn thành");
+                        break;
                 }
             }
         }).attach();

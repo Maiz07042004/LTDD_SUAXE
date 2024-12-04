@@ -4,14 +4,13 @@ import static android.content.Context.MODE_PRIVATE;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+
+import androidx.fragment.app.Fragment;
 
 import com.example.ltdd_suaxe.API.APIService;
 import com.example.ltdd_suaxe.API.RetrofitApp;
@@ -26,14 +25,13 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-
-public class Tab_Fragment_DonYeuCau extends Fragment {
+public class Tab_Fragment_DaHoanThanh extends Fragment {
     private View mView;
     ListView lvYeuCau;
-    ArrayList<DonYeuCau> arrayDonYeuCau;
-    private DonYeuCauAdapter adapter;
+    ArrayList<DonYeuCau> arrayDonXacNhan;
+    DonYeuCauAdapter adapter;
 
-    public Tab_Fragment_DonYeuCau() {
+    public Tab_Fragment_DaHoanThanh() {
         // Required empty public constructor
     }
 
@@ -42,15 +40,14 @@ public class Tab_Fragment_DonYeuCau extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        mView =inflater.inflate(R.layout.fragment_tab_don_yeu_cau, container, false);
+        mView =inflater.inflate(R.layout.fragment_tab_da_hoan_thanh, container, false);
         AnhXa();
-        adapter= new DonYeuCauAdapter(getContext(),R.layout.dong_yeucau,arrayDonYeuCau);
+        adapter= new DonYeuCauAdapter(getContext(),R.layout.dong_hoanthanh,arrayDonXacNhan);
         lvYeuCau.setAdapter(adapter);
 
 
         return mView;
     }
-
     @Override
     public void onResume() {
         super.onResume();
@@ -67,15 +64,15 @@ public class Tab_Fragment_DonYeuCau extends Fragment {
     private  void getListDonSuaChuaTheoTrangThai(String cuaHangId){
         APIService apiService = RetrofitApp.getRetrofitInstance().create(APIService.class);
 
-        Call<List<DonYeuCau>> call = apiService.getListDonSuaChuaTheoTrangThaiCuaHang(cuaHangId, "ChoXacNhan");
+        Call<List<DonYeuCau>> call = apiService.getListDonSuaChuaTheoTrangThaiCuaHang(cuaHangId, "DaHoanThanh");
 
         call.enqueue(new Callback<List<DonYeuCau>>() {
             @Override
             public void onResponse(Call<List<DonYeuCau>> call, Response<List<DonYeuCau>> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     List<DonYeuCau> donSuaChuaList = response.body();
-                    arrayDonYeuCau.clear();
-                    arrayDonYeuCau.addAll(donSuaChuaList);
+                    arrayDonXacNhan.clear();
+                    arrayDonXacNhan.addAll(donSuaChuaList);
                     adapter.notifyDataSetChanged();
                 } else {
                     Log.e("API", "Error: " + response.message());
@@ -91,7 +88,7 @@ public class Tab_Fragment_DonYeuCau extends Fragment {
     }
     private void AnhXa(){
         lvYeuCau=(ListView) mView.findViewById(R.id.listyeucau);
-        arrayDonYeuCau=new ArrayList<>();
+        arrayDonXacNhan=new ArrayList<>();
         // Khởi tạo dữ liệu cho từng item
 //        String[] dichVu1 = {"Vá xe", "Thay lốp"};
 //        String[] dichVu2 = {"Sửa điện", "Thay ắc quy"};
@@ -103,6 +100,6 @@ public class Tab_Fragment_DonYeuCau extends Fragment {
 //        arrayDonYeuCau.add(new DonYeuCau("Trần Công Hiếu", "0987654321", dichVu2, "16 Võ Nguyên Giáp", "Đã xác nhận", R.drawable.image_user));
 //        arrayDonYeuCau.add(new DonYeuCau("Phan Minh Nhật", "0369852147", dichVu3, "16 Võ Nguyên Giáp", "Đang thực hiện", R.drawable.image_user));
 //        arrayDonYeuCau.add(new DonYeuCau("Phạm Thị D", "0741852963", dichVu4, "16 Võ Nguyên Giáp", "Hoàn thành", R.drawable.image_user));
-//        arrayDonYeuCau.add(new DonYeuCau("Hoàng Văn E", "0258963147", dichVu5, "16 Võ Nguyên Giáp", "Chờ xác nhận", R.drawable.image_user));
+//        arrayDonYeuCau.add(new DonYeuCau("Hoàng Văn E", "0258963147", dichVu5, "Method...", "Chờ xác nhận", R.drawable.image_user));
     }
 }

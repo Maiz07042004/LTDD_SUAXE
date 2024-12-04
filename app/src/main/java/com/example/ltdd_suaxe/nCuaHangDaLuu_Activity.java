@@ -83,14 +83,5 @@ public class nCuaHangDaLuu_Activity extends AppCompatActivity {
             }
         });
     }
-//    private void loadSavedStores() {
-//        SharedPreferences sharedPreferences = getSharedPreferences("SavedStores", MODE_PRIVATE);
-//        // Lấy tất cả các khóa (tên cửa hàng)
-//        Set<String> savedStoreNames = sharedPreferences.getAll().keySet();
-//
-//        for (String storeName : savedStoreNames) {
-//            int likes = Integer.parseInt(sharedPreferences.getString(storeName, "0")); // Số lượt like
-////            arraynCuaHangDaLuu.add(new nCuaHangDaLuu(storeName, likes, R.drawable.cuahang1, R.drawable.luu)); // Hình ảnh cần tùy chỉnh
-//        }
-//    }
+
 }

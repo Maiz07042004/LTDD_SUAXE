@@ -6,6 +6,7 @@ import com.example.ltdd_suaxe.Model.DangKyKhachHangRequest;
 import com.example.ltdd_suaxe.Model.DoiMatKhauRequest;
 import com.example.ltdd_suaxe.Model.DonSuaChuaRequest;
 import com.example.ltdd_suaxe.Model.DonSuaChua_Daxacnhan;
+import com.example.ltdd_suaxe.Model.DonYeuCau;
 import com.example.ltdd_suaxe.Model.LoginCuaHangResponse;
 import com.example.ltdd_suaxe.Model.LoginRequest;
 import com.example.ltdd_suaxe.Model.LoginResponse;
@@ -89,5 +90,12 @@ public interface APIService {
 
     @POST("cuaHang/login")  // Api Login
     Call<LoginCuaHangResponse> loginCuaHang(@Body LoginRequest loginRequest);
+
+    //Lấy danh sách đơn sửa chữa theo trạng thái bên khách hàng
+    @GET("donSuaChua/cuaHang/{IdCuaHang}/{status}")
+    Call<List<DonYeuCau>> getListDonSuaChuaTheoTrangThaiCuaHang(
+            @Path("IdCuaHang") String IdKhachHang,
+            @Path("status") String status
+    );
 }
 

@@ -24,6 +24,8 @@ public class ListViewPagerAdapterCuaHang extends FragmentStateAdapter {
                 return new Tab_Fragment_DonYeuCau();
             case 1:
                 return new Tab_Fragment_DonXacNhan();
+            case 2:
+                return new Tab_Fragment_DaHoanThanh();
             default:
                 return new Tab_Fragment_DonYeuCau();
         }
@@ -31,7 +33,7 @@ public class ListViewPagerAdapterCuaHang extends FragmentStateAdapter {
 
     @Override
     public int getItemCount() {
-        return 2;
+        return 3;
     }
 
 

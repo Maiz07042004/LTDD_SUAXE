@@ -142,7 +142,7 @@ public class User_ChoXacNhan_Adapter extends BaseAdapter {
                     ResponseChung responseChung=response.body();
                     if(responseChung.getCode()==200){
                         // Cập nhật lại danh sách sau khi xóa
-                        daxacnhanList   .removeIf(cuaHang -> cuaHang.get_id().equals(IdDonSuaChua   ));
+                        daxacnhanList.removeIf(cuaHang -> cuaHang.get_id().equals(IdDonSuaChua   ));
                         notifyDataSetChanged();  // Cập nhật giao diện
                         Toast.makeText(context, "Đã huỷ thành công", Toast.LENGTH_SHORT).show();
                     }else {
