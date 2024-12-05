@@ -3,6 +3,7 @@ package com.example.ltdd_suaxe.API;
 import com.example.ltdd_suaxe.Model.CapNhatCuaHangRequest;
 import com.example.ltdd_suaxe.Model.CapNhatCuaHangResponse;
 import com.example.ltdd_suaxe.Model.CapNhatKhachHangRequest;
+import com.example.ltdd_suaxe.Model.ChiTietDatHangResponse;
 import com.example.ltdd_suaxe.Model.CuaHang;
 import com.example.ltdd_suaxe.Model.DangKyCuaHangRequest;
 import com.example.ltdd_suaxe.Model.DangKyKhachHangRequest;
@@ -87,6 +88,10 @@ public interface APIService {
             @Path("IdKhachHang") String IdKhachHang
     );
 
+    //Lấy chi tiết đơn đặt hàng
+    @GET("donSuaChua/chiTietDonSuaChua/{IdDonSuaChua}")
+    Call<ChiTietDatHangResponse> getChiTietDatHang(@Path("IdDonSuaChua") String IdDonSuaChua);
+
     // Update trạng thái đơn sửa chữa
     @POST("donSuaChua/updateDonSuaChua/{IdDonSuaChua}/{status}")
     Call<ResponseChung> updateDonSuaChua(@Path("IdDonSuaChua") String IdDonSuaChua, @Path("status") String status);
@@ -98,7 +103,7 @@ public interface APIService {
     @POST("cuaHang/register")
     Call<ResponseChung> registerCuaHang(@Body DangKyCuaHangRequest dangKyCuaHangRequest);
 
-    //Lấy danh sách đơn sửa chữa theo trạng thái bên khách hàng
+    //Lấy danh sách đơn sửa chữa theo trạng thái bên cửa hàng
     @GET("donSuaChua/cuaHang/{IdCuaHang}/{status}")
     Call<List<DonYeuCau>> getListDonSuaChuaTheoTrangThaiCuaHang(
             @Path("IdCuaHang") String IdKhachHang,
@@ -113,5 +118,8 @@ public interface APIService {
 
     @POST("cuaHang/updatePassword/{cuaHangId}")  //Đổi mật khẩu cửa hàng
     Call<ResponseChung> updatePasswordCuaHang(@Path("cuaHangId") String cuaHangId, @Body DoiMatKhauRequest doiMatKhauRequest);
+
+    @POST("donSuaChua/capNhatLike/{IdDonSuaChua}")
+    Call<ResponseChung> updateLike(@Path("IdDonSuaChua") String IdDonSuaChua);
 }
 

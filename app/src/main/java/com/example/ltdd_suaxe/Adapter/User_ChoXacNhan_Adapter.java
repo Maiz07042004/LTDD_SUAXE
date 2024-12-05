@@ -84,15 +84,19 @@ public class User_ChoXacNhan_Adapter extends BaseAdapter {
         switch (donDaXacNhan.getTrangThai()){
             case "ChoXacNhan":
                 txtTrangThai.setText("Chờ xác nhận");
+                btnCancel.setVisibility(View.VISIBLE); // Hiển thị nút Hủy khi trạng thái là "ChoXacNhan"
                 break;
             case "DaXacNhan":
                 txtTrangThai.setText("Đã xác nhận");
+                btnCancel.setVisibility(View.INVISIBLE);
                 break;
             case "DaHoanThanh":
                 txtTrangThai.setText("Đã hoàn thành");
+                btnCancel.setVisibility(View.INVISIBLE);
                 break;
             case "DaHuy":
                 txtTrangThai.setText("Đã huỷ");
+                btnCancel.setVisibility(View.INVISIBLE);
                 break;
             default:
                 break;
@@ -115,12 +119,7 @@ public class User_ChoXacNhan_Adapter extends BaseAdapter {
         // Thêm sự kiện onClick cho mỗi item
         view.setOnClickListener(v -> {
             Intent intent = new Intent(context, nChiTietDatHang_AcTiViTy.class);
-            intent.putExtra("TenCuaHang", donDaXacNhan.getTenCuaHang());
-            intent.putExtra("DiaChi", donDaXacNhan.getDiaChi());
-            intent.putExtra("DichVu", dichVuString);
-            intent.putExtra("HinhAnh", imageUrl);
-            intent.putExtra("TrangThai", donDaXacNhan.getTrangThai());
-            intent.putExtra("NgayDat", donDaXacNhan.getNgayDatDon().toString());
+            intent.putExtra("IdDonHang", donDaXacNhan.get_id());
             context.startActivity(intent);
         });
 

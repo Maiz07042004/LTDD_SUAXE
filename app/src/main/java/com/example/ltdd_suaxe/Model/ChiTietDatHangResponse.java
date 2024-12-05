@@ -3,25 +3,29 @@ package com.example.ltdd_suaxe.Model;
 import java.util.Date;
 import java.util.List;
 
-public class DonSuaChua {
+public class ChiTietDatHangResponse {
     private String _id;
-    private String IdKhachHang;
-    private  String IdCuaHang;
+    private String TrangThai;
     private Date NgayDatDon;
     private List<String> DichVu;
     private String DiaChi;
-    private String GhiChu;
-    private String TrangThai;
+    private String TenKhachHang;
+    private String SDT;
+    private String TenCuaHang;
+    private String IdCuaHang;
+    private String HinhAnh;
     private Boolean DaLike;
 
-    public DonSuaChua(Boolean daLike,String _id, String diaChi, List<String> dichVu, String ghiChu, String idCuaHang, String idKhachHang, Date ngayDatDon, String trangThai) {
+    public ChiTietDatHangResponse(Boolean daLike,String _id, String diaChi, List<String> dichVu, String hinhAnh, String idCuaHang, Date ngayDatDon, String SDT, String tenCuaHang, String tenKhachHang, String trangThai) {
         this._id = _id;
         DiaChi = diaChi;
         DichVu = dichVu;
-        GhiChu = ghiChu;
+        HinhAnh = hinhAnh;
         IdCuaHang = idCuaHang;
-        IdKhachHang = idKhachHang;
         NgayDatDon = ngayDatDon;
+        this.SDT = SDT;
+        TenCuaHang = tenCuaHang;
+        TenKhachHang = tenKhachHang;
         TrangThai = trangThai;
         DaLike=daLike;
     }
@@ -58,12 +62,12 @@ public class DonSuaChua {
         DichVu = dichVu;
     }
 
-    public String getGhiChu() {
-        return GhiChu;
+    public String getHinhAnh() {
+        return HinhAnh;
     }
 
-    public void setGhiChu(String ghiChu) {
-        GhiChu = ghiChu;
+    public void setHinhAnh(String hinhAnh) {
+        HinhAnh = hinhAnh;
     }
 
     public String getIdCuaHang() {
@@ -74,20 +78,36 @@ public class DonSuaChua {
         IdCuaHang = idCuaHang;
     }
 
-    public String getIdKhachHang() {
-        return IdKhachHang;
-    }
-
-    public void setIdKhachHang(String idKhachHang) {
-        IdKhachHang = idKhachHang;
-    }
-
     public Date getNgayDatDon() {
         return NgayDatDon;
     }
 
     public void setNgayDatDon(Date ngayDatDon) {
         NgayDatDon = ngayDatDon;
+    }
+
+    public String getSDT() {
+        return SDT;
+    }
+
+    public void setSDT(String SDT) {
+        this.SDT = SDT;
+    }
+
+    public String getTenCuaHang() {
+        return TenCuaHang;
+    }
+
+    public void setTenCuaHang(String tenCuaHang) {
+        TenCuaHang = tenCuaHang;
+    }
+
+    public String getTenKhachHang() {
+        return TenKhachHang;
+    }
+
+    public void setTenKhachHang(String tenKhachHang) {
+        TenKhachHang = tenKhachHang;
     }
 
     public String getTrangThai() {

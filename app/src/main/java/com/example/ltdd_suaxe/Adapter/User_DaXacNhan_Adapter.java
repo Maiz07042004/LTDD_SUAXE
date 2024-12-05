@@ -112,12 +112,7 @@ public class User_DaXacNhan_Adapter extends BaseAdapter {
         // Thêm sự kiện onClick cho mỗi item
         view.setOnClickListener(v -> {
             Intent intent = new Intent(context, nChiTietDatHang_AcTiViTy.class);
-            intent.putExtra("TenCuaHang", donDaXacNhan.getTenCuaHang());
-            intent.putExtra("DiaChi", donDaXacNhan.getDiaChi());
-            intent.putExtra("DichVu", dichVuString);
-            intent.putExtra("HinhAnh", imageUrl);
-            intent.putExtra("TrangThai", donDaXacNhan.getTrangThai());
-            intent.putExtra("NgayDat", donDaXacNhan.getNgayDatDon().toString());
+            intent.putExtra("IdDonHang", donDaXacNhan.get_id());
             context.startActivity(intent);
         });
 
