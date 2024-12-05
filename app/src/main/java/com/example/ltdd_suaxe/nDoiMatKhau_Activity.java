@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -42,7 +43,7 @@ public class nDoiMatKhau_Activity extends AppCompatActivity {
 
 // Lấy userId từ SharedPreferences
         String userId = sharedPreferences.getString("userId", null);  // Nếu không có giá trị, trả về null
-
+        String cuaHangId = sharedPreferences.getString("cuaHangId", null);
 
         // Xử lý sự kiện click cho nút
         btnDoiMK.setOnClickListener(new View.OnClickListener() {
@@ -58,10 +59,19 @@ public class nDoiMatKhau_Activity extends AppCompatActivity {
                 } else if (!newPassword.getText().toString().equals(confirmPassword.getText().toString())) {
                     // Hiển thị thông báo lỗi nếu mật khẩu mới và xác nhận không khớp
                     showAlert("Lỗi", "Mật khẩu mới và xác nhận mật khẩu không khớp!",false);
-                } else {
-                    // Hiển thị thông báo thành công nếu mọi thứ hợp lệ
-                    DoiMatKhauRequest doiMatKhauRequest=new DoiMatKhauRequest(oldPassword.getText().toString(),newPassword.getText().toString());
-                    DoiMatKhauKhachHang(userId,doiMatKhauRequest);
+                }else {
+                    DoiMatKhauRequest doiMatKhauRequest = new DoiMatKhauRequest(
+                            oldPassword.getText().toString(), newPassword.getText().toString());
+                    if (cuaHangId != null) {
+                        // Cập nhật mật khẩu cho cửa hàng
+                        DoiMatKhauCuaHang(cuaHangId, doiMatKhauRequest);
+                    } else if (userId != null) {
+                        // Cập nhật mật khẩu cho khách hàng
+                        DoiMatKhauKhachHang(userId, doiMatKhauRequest);
+                    } else {
+                        // Nếu không có cuaHangId hay userId
+                        showAlert("Lỗi", "Không tìm thấy thông tin người dùng!", false);
+                    }
                 }
             }
         });
@@ -85,7 +95,17 @@ public class nDoiMatKhau_Activity extends AppCompatActivity {
             if (success) {
                 // Tạo một Handler để chuyển Activity sau 1 giây
                 new Handler().postDelayed(() -> {
-                    Intent intent = new Intent(nDoiMatKhau_Activity.this, User_Home_Activity.class); // Thay YourNextActivity bằng Activity bạn muốn chuyển tới
+                    SharedPreferences sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE);
+                    String cuaHangId = sharedPreferences.getString("cuaHangId", null); // Lấy cuaHangId từ SharedPreferences
+
+                    Intent intent;
+                    if (cuaHangId != null) {
+                        // Nếu là cửa hàng, chuyển tới CuaHang_Home_Activity
+                        intent = new Intent(nDoiMatKhau_Activity.this, CuaHang_Home_Activity.class);
+                    } else {
+                        // Nếu là khách hàng, chuyển tới User_Home_Activity
+                        intent = new Intent(nDoiMatKhau_Activity.this, User_Home_Activity.class);
+                    }
                     startActivity(intent);
                     finish(); // Kết thúc Activity hiện tại nếu không cần quay lại
                 }, 1000); // Độ trễ 1 giây
@@ -117,6 +137,34 @@ public class nDoiMatKhau_Activity extends AppCompatActivity {
                     Toast.makeText(nDoiMatKhau_Activity.this, "Cập nhật thất bại, vui lòng thử lại!", Toast.LENGTH_SHORT).show();
                 }
             }
+            @Override
+            public void onFailure(Call<ResponseChung> call, Throwable t) {
+                // Thông báo lỗi kết nối
+                Toast.makeText(nDoiMatKhau_Activity.this, "Lỗi kết nối: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    private void DoiMatKhauCuaHang(String cuaHangId, DoiMatKhauRequest doiMatKhauRequest) {
+        // Khởi tạo APIService
+        APIService apiService = RetrofitApp.getRetrofitInstance().create(APIService.class);
+
+        // Gọi API cập nhật mật khẩu cho cửa hàng
+        Call<ResponseChung> call = apiService.updatePasswordCuaHang(cuaHangId, doiMatKhauRequest);
+        call.enqueue(new Callback<ResponseChung>() {
+            @Override
+            public void onResponse(Call<ResponseChung> call, Response<ResponseChung> response) {
+                if (response.isSuccessful()) {
+                    if (response.body().getCode() == 200) {
+                        showAlert("Thông báo", "Bạn đã đổi mật khẩu cửa hàng thành công!", true);
+                    } else {
+                        showAlert("Lỗi", response.body().getMessage(), false);
+                    }
+                } else {
+                    // Thông báo lỗi
+                    Toast.makeText(nDoiMatKhau_Activity.this, "Cập nhật thất bại, vui lòng thử lại!", Toast.LENGTH_SHORT).show();
+                }
+            }
+
             @Override
             public void onFailure(Call<ResponseChung> call, Throwable t) {
                 // Thông báo lỗi kết nối

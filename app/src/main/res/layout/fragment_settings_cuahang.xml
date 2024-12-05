@@ -35,13 +35,16 @@
         android:layout_height="100dp"
         android:background="@drawable/custom_coner">
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imageViewAvatar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             app:srcCompat="@drawable/image_ic_cuahang"
+            app:shapeAppearanceOverlay="@style/CircularShape"
             android:layout_marginLeft="30dp"
-            android:layout_centerVertical="true"/>
+            android:scaleType="fitXY"
+            android:layout_centerVertical="true"
+            />
         <LinearLayout
             android:layout_marginLeft="25dp"
             android:layout_toRightOf="@+id/imageViewAvatar"
@@ -51,12 +54,14 @@
             android:orientation="vertical"
             >
             <TextView
+                android:id="@+id/ten_cuahang"
                 android:layout_width="200dp"
                 android:layout_height="30dp"
                 android:textStyle="bold"
                 android:textSize="15sp"
                 android:text="Thanh Mai Garage"/>
             <TextView
+                android:id="@+id/email_cuahang"
                 android:layout_width="215dp"
                 android:layout_height="30dp"
                 android:textSize="15sp"
@@ -142,7 +147,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Lịch sử sửa chữa"
+                android:text="Đơn sửa chữa"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:layout_centerVertical="true"

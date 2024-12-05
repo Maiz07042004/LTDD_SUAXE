@@ -35,7 +35,7 @@ public class ListFragmentCuaHang extends Fragment {
 
 
         // Ánh xạ view
-        tabLayout = mView.findViewById(R.id.tab_layout);
+        tabLayout = mView.findViewById(R.id.tab_layout_cuaHang);
         viewPager = mView.findViewById(R.id.viewPager);
 
         // Tạo adapter cho ViewPager2

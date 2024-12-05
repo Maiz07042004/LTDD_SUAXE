@@ -1,5 +1,7 @@
 package com.example.ltdd_suaxe.API;
 
+import com.example.ltdd_suaxe.Model.CapNhatCuaHangRequest;
+import com.example.ltdd_suaxe.Model.CapNhatCuaHangResponse;
 import com.example.ltdd_suaxe.Model.CapNhatKhachHangRequest;
 import com.example.ltdd_suaxe.Model.CuaHang;
 import com.example.ltdd_suaxe.Model.DangKyKhachHangRequest;
@@ -97,5 +99,14 @@ public interface APIService {
             @Path("IdCuaHang") String IdKhachHang,
             @Path("status") String status
     );
+
+    @GET("cuaHang/detail/{cuaHangId}")  // Lấy ra tông tin cá nhân khách hàng
+    Call<CapNhatCuaHangResponse> CuaHangDetail(@Path("cuaHangId") String cuaHangId);
+
+    @POST("cuaHang/update/{cuaHangId}")  //Cập nhật thông tin khách hàng
+    Call<ResponseChung> updateCuaHang(@Path("cuaHangId") String cuaHangId, @Body CapNhatCuaHangRequest capNhatCuaHangRequest);
+
+    @POST("cuaHang/updatePassword/{cuaHangId}")  //Đổi mật khẩu cửa hàng
+    Call<ResponseChung> updatePasswordCuaHang(@Path("cuaHangId") String cuaHangId, @Body DoiMatKhauRequest doiMatKhauRequest);
 }
 

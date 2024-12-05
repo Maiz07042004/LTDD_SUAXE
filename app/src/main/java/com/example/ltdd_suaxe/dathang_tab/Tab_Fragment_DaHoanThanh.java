@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.ltdd_suaxe.API.APIService;
 import com.example.ltdd_suaxe.API.RetrofitApp;
+import com.example.ltdd_suaxe.Adapter.DonHoanThanhAdapter;
 import com.example.ltdd_suaxe.Adapter.DonYeuCauAdapter;
 import com.example.ltdd_suaxe.Model.DonYeuCau;
 import com.example.ltdd_suaxe.R;
@@ -29,7 +30,7 @@ public class Tab_Fragment_DaHoanThanh extends Fragment {
     private View mView;
     ListView lvYeuCau;
     ArrayList<DonYeuCau> arrayDonXacNhan;
-    DonYeuCauAdapter adapter;
+    DonHoanThanhAdapter adapter;
 
     public Tab_Fragment_DaHoanThanh() {
         // Required empty public constructor
@@ -42,7 +43,7 @@ public class Tab_Fragment_DaHoanThanh extends Fragment {
         // Inflate the layout for this fragment
         mView =inflater.inflate(R.layout.fragment_tab_da_hoan_thanh, container, false);
         AnhXa();
-        adapter= new DonYeuCauAdapter(getContext(),R.layout.dong_hoanthanh,arrayDonXacNhan);
+        adapter= new DonHoanThanhAdapter(getContext(),R.layout.dong_hoanthanh,arrayDonXacNhan);
         lvYeuCau.setAdapter(adapter);
 
 
