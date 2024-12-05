@@ -140,7 +140,6 @@
         android:layout_width="320dp"
         android:layout_height="70dp"
         android:hint="Nhập mô tả"
-        android:background="@drawable/edittext_background"
         android:inputType="textMultiLine"
         android:gravity="top"
         android:layout_below="@+id/textViewemail_mota"
