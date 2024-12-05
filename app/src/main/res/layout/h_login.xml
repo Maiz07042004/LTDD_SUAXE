@@ -191,18 +191,21 @@
         >
 
         <ImageView
+            android:id="@+id/instaimage"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_margin="8dp"
             android:src="@drawable/instagram" />
 
         <ImageView
+            android:id="@+id/facebookimage"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_margin="8dp"
             android:src="@drawable/facebook" />
 
         <ImageView
+            android:id="@+id/twiterimage"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_margin="8dp"
