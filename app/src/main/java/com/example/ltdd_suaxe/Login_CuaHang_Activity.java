@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,6 +43,7 @@ public class Login_CuaHang_Activity extends AppCompatActivity {
             return insets;
         });
 
+        CheckBox checkBoxRememberMe = findViewById(R.id.checkBox);
         edtSDT  = findViewById(R.id.text_SDT);
         edtPassword  = findViewById(R.id.textPassword);
         Button btn_login = findViewById(R.id.button_login);
@@ -78,6 +80,7 @@ public class Login_CuaHang_Activity extends AppCompatActivity {
     private void Login() {
         String sdt = edtSDT.getText().toString().trim();
         String password = edtPassword.getText().toString().trim();
+        CheckBox checkBoxRememberMe = findViewById(R.id.checkBox);
 
         if (sdt.isEmpty() || password.isEmpty()) {
             Toast.makeText(this, "Vui lòng nhập đủ thông tin", Toast.LENGTH_SHORT).show();
@@ -106,6 +109,12 @@ public class Login_CuaHang_Activity extends AppCompatActivity {
                         SharedPreferences sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putString("cuaHangId", loginResponse.getCuaHangId());  // Lưu userId
+                        // Kiểm tra nếu người dùng tick "Ghi nhớ mật khẩu"
+                        if (checkBoxRememberMe.isChecked()) {
+                            editor.putString("rememberPassShop", "1");
+                        } else {
+                            editor.remove("rememberPassShop");
+                        }
                         editor.apply();  // Áp dụng thay đổi
 
                         // Chuyển tới màn hình Home

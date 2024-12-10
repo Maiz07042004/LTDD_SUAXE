@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,6 +33,7 @@ public class h_login_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.h_login);
 
+        CheckBox checkBoxRememberMe = findViewById(R.id.checkBox);
         edtSDT  = findViewById(R.id.text_SDT);
         edtPassword  = findViewById(R.id.textPassword);
         Button btn_login = findViewById(R.id.button_login);
@@ -68,6 +70,7 @@ public class h_login_activity extends AppCompatActivity {
     private void Login() {
         String sdt = edtSDT.getText().toString().trim();
         String password = edtPassword.getText().toString().trim();
+        CheckBox checkBoxRememberMe = findViewById(R.id.checkBox);
 
         if (sdt.isEmpty() || password.isEmpty()) {
             Toast.makeText(this, "Vui lòng nhập đủ thông tin", Toast.LENGTH_SHORT).show();
@@ -95,7 +98,13 @@ public class h_login_activity extends AppCompatActivity {
                         // Lưu userId vào SharedPreferences
                         SharedPreferences sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPreferences.edit();
-                        editor.putString("userId", loginResponse.getUserId());  // Lưu userId
+                        editor.putString("userId", loginResponse.getUserId());
+                        // Kiểm tra nếu người dùng tick "Ghi nhớ mật khẩu"
+                        if (checkBoxRememberMe.isChecked()) {
+                            editor.putString("rememberPassUser", "1");
+                        } else {
+                            editor.remove("rememberPassUser");
+                        }// Lưu userId
                         editor.apply();  // Áp dụng thay đổi
 
                         // Chuyển tới màn hình Home
